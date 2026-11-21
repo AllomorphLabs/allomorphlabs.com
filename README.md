@@ -1,16 +1,41 @@
-# React + Vite
+# allomorphlabs.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+The Allomorph landing page: a static React site built with Vite and deployed to GitHub Pages at <https://allomorphlabs.com>.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev        # http://localhost:5173
+```
 
-## React Compiler
+Other scripts:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `npm run build`: production build into `dist/`
+- `npm run preview`: serve the production build locally
+- `npm run lint`: run oxlint
 
-## Expanding the Oxlint configuration
+## Deploy
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Every push to `main` runs `.github/workflows/deploy.yml`, which builds the site and publishes `dist/` to GitHub Pages. In the repository's **Settings → Pages**, **Source** must be set to **GitHub Actions**, and the custom domain is `allomorphlabs.com`.
+
+## Where things live
+
+| Path | What it is |
+|---|---|
+| `index.html` | Page shell: title, meta tags, fonts, favicon |
+| `public/favicon.svg` | Split-circle mark used as the favicon |
+| `public/proposals/` | Research proposals, linked from each project section |
+| `src/index.css` | All styling; colour tokens are at the top |
+| `src/App.jsx` | Page order |
+| `src/components/` | One file per section |
+| `src/components/TwinsDemo.jsx` | The interactive Zib and Mov demo |
+| `src/components/twinsScript.js` | The demo's timeline and invented-language vocabulary |
+| `src/components/GridWorld.jsx` | The watcher's grid "video" |
+| `src/components/shared.jsx` | Logo, labels and the GitHub URL |
+
+## Placeholders still to fill in
+
+- `[YOUR EMAIL]` in `src/components/OpenCode.jsx`
+- `[RUN COMMAND]` in the terminal block in `src/components/OpenCode.jsx`
+- `[NEXT PROBLEM]` and `[FUTURE PROBLEM]` in `src/components/Roadmap.jsx`
