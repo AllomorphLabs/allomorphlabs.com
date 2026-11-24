@@ -11,6 +11,8 @@ const PAGES = {
   proposal: () => import('./pages/Proposal.jsx'),
   log: () => import('./pages/Log.jsx'),
   about: () => import('./pages/About.jsx'),
+  'idea-circuits': () => import('./pages/Idea.jsx'),
+  'idea-language': () => import('./pages/Idea.jsx'),
 }
 
 const name = document.body.dataset.page
