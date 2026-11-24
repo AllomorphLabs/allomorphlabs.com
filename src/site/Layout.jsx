@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { LogoMark } from '../components/shared.jsx'
-import { ABOUT, GITHUB_URL, LOG, PROJECT, PROPOSAL } from './links.js'
+import { ABOUT, EMAIL, GITHUB_URL, IDEA_CIRCUITS, IDEA_LANGUAGE, LOG, PROJECT, PROPOSAL } from './links.js'
 
 const YEAR = new Date().getFullYear()
 
@@ -63,11 +63,14 @@ function Footer() {
           <a href={PROJECT}>Project 01</a>
           <a href={PROPOSAL}>Proposal</a>
           <a href={LOG}>Research log</a>
+          <a href={IDEA_CIRCUITS}>Idea: planted circuits</a>
+          <a href={IDEA_LANGUAGE}>Idea: undesigned language</a>
         </div>
         <div className="footer__col">
           <div className="eyebrow eyebrow--muted">Lab</div>
           <a href={ABOUT}>About</a>
           <a href={GITHUB_URL}>GitHub</a>
+          <a href={`mailto:${EMAIL}`}>Contact</a>
         </div>
         <div className="footer__legal mono muted small">© {YEAR} Allomorph · allomorphlabs.com</div>
       </div>

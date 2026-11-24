@@ -4,7 +4,7 @@ import { Eyebrow, MiniMark } from '../components/shared.jsx'
 import { FrameCells } from '../components/FrameCells.jsx'
 import entries from '../content/log-index.json'
 import results from '../data/results.json'
-import { ABOUT, GITHUB_URL, LOG, PROJECT, PROPOSAL, REPO_URL, logEntry } from '../site/links.js'
+import { EMAIL, GITHUB_URL, IDEA_CIRCUITS, IDEA_LANGUAGE, LOG, PROJECT, PROPOSAL, REPO_URL, logEntry } from '../site/links.js'
 import { pct } from '../site/format.js'
 
 const confirm = results.find((r) => r.role === 'confirmation')
@@ -196,7 +196,7 @@ function Roadmap() {
       <div className="container stack-40">
         <div className="section-head">
           <Eyebrow tone="ice">Beyond ML</Eyebrow>
-          <h2 className="h2">The first problem is about language models. The next ones won’t all be.</h2>
+          <h2 className="h2">One project under way. Two ideas that might come next.</h2>
         </div>
         <div className="roadmap">
           <a href={PROJECT} className="card card--dark card--active card--link">
@@ -204,15 +204,16 @@ function Roadmap() {
             <div className="roadmap__title">Predicting the limits of unsupervised grounding</div>
             <span className="roadmap__link">Pilot complete. Next: literature and novelty check →</span>
           </a>
-          <article className="card card--dark card--dashed">
-            <Eyebrow>02 · Next</Eyebrow>
-            <div className="roadmap__title roadmap__title--muted">To be announced</div>
-            <span className="small muted">Chosen the same way: a hard question with an answer we can check.</span>
-          </article>
-          <article className="card card--dark card--dashed">
-            <Eyebrow>03 · Later</Eyebrow>
-            <div className="roadmap__title roadmap__title--muted">To be announced</div>
-          </article>
+          <a href={IDEA_CIRCUITS} className="card card--dark card--dashed card--link">
+            <Eyebrow>Idea · not started</Eyebrow>
+            <div className="roadmap__title roadmap__title--muted">Can interpretability find a circuit we planted?</div>
+            <span className="small muted">Just an idea for now →</span>
+          </a>
+          <a href={IDEA_LANGUAGE} className="card card--dark card--dashed card--link">
+            <Eyebrow>Idea · not started</Eyebrow>
+            <div className="roadmap__title roadmap__title--muted">Can we read a language nobody designed?</div>
+            <span className="small muted">Just an idea for now →</span>
+          </a>
         </div>
       </div>
     </section>
@@ -232,7 +233,7 @@ function OpenCode() {
           </p>
           <div className="button-row">
             <a className="btn" href={REPO_URL}>Browse the code</a>
-            <a className="btn btn--ghost" href={ABOUT}>About the lab</a>
+            <a className="btn btn--ghost" href={`mailto:${EMAIL}`}>Get in touch</a>
           </div>
         </div>
         <div className="terminal">

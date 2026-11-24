@@ -1,6 +1,6 @@
 import NameMeaning from '../components/NameMeaning.jsx'
 import { Eyebrow } from '../components/shared.jsx'
-import { GITHUB_URL, LOG, PROJECT, PROPOSAL } from '../site/links.js'
+import { EMAIL, GITHUB_URL, LOG, PROJECT, PROPOSAL } from '../site/links.js'
 
 const COMMITMENTS = [
   {
@@ -70,6 +70,22 @@ export default function About() {
         </div>
       </section>
 
+      <section className="section section--ruled">
+        <div className="container two-col">
+          <div className="stack-24">
+            <Eyebrow tone="ice">Who</Eyebrow>
+            <h2 className="h2">Shane Armstrong</h2>
+          </div>
+          <div className="prose prose--lead">
+            <p>
+              Allomorph was founded by Shane Armstrong, a software engineer and technical leader with fifteen years of
+              building systems people rely on, from start-ups to platforms that move billions of pounds. Allomorph is
+              the place for questions that are usually only argued about, to test them instead.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="section section--tinted">
         <div className="container stack-40">
           <div className="section-head">
@@ -103,6 +119,9 @@ export default function About() {
               <a className="btn btn--ghost" href={LOG}>Research log</a>
               <a className="btn btn--ghost" href={GITHUB_URL}>GitHub</a>
             </div>
+            <p className="small muted">
+              Questions, collaboration or funding: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            </p>
           </div>
         </div>
       </section>

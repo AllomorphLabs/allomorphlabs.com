@@ -27,6 +27,7 @@ Every push to `main` runs `.github/workflows/deploy.yml`, which builds the site 
 | `/research/unsupervised-grounding/` | Project 01: question, method, real pilot results, what's next | `src/pages/Project.jsx` |
 | `/research/unsupervised-grounding/proposal/` | The proposal, rendered from Markdown | `src/pages/Proposal.jsx` |
 | `/research/unsupervised-grounding/log/` | The research log, rendered from Markdown | `src/pages/Log.jsx` |
+| `/research/ideas/planted-circuits/`, `/research/ideas/undesigned-language/` | Ideas for future problems: deliberately short, and marked as ideas only | `src/pages/Idea.jsx` |
 | `/about/` | About the lab | `src/pages/About.jsx` |
 
 Each page has its own HTML shell (title, description, canonical URL), written by `npm run pages` from `scripts/make-pages.mjs`. To add a page, add it there and to `src/main.jsx`.
@@ -56,8 +57,3 @@ The site never invents its numbers. Everything about Project 01 comes from the [
 | `src/components/WorldMap.jsx` | A world state drawn as the pilot world's map |
 | `src/components/TwinsDemo.jsx` | The illustrative Zib and Mov demo |
 | `src/content/`, `src/data/` | Synced documents and exported pilot data |
-
-## Still to decide
-
-- A contact address. The site links to GitHub only.
-- Projects 02 and 03 are shown as "To be announced".

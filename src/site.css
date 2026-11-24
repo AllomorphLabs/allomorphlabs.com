@@ -648,3 +648,8 @@
 .fig__n { white-space: nowrap; }
 .chart__table { overflow-x: auto; }
 .prose code { overflow-wrap: anywhere; }
+
+/* ---------- Idea pages ---------- */
+.idea { max-width: 780px; display: flex; flex-direction: column; gap: 32px; }
+.idea__prior { display: flex; flex-direction: column; gap: 12px; }
+.callout--muted { border-left-color: var(--muted); }
