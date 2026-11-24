@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync": "node scripts/sync-content.mjs",
+    "pages": "node scripts/make-pages.mjs"
   },
   "dependencies": {
+    "marked": "18.3.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },

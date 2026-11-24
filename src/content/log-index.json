@@ -1,0 +1,277 @@
+[
+ {
+  "n": 1,
+  "title": "First end-to-end alignment (vec2vec)",
+  "session": "Session 1: first pilot run"
+ },
+ {
+  "n": 2,
+  "title": "Do the models hold the world state?",
+  "session": "Session 1: first pilot run"
+ },
+ {
+  "n": 3,
+  "title": "Does the language model understand the world at all?",
+  "session": "Session 1: first pilot run"
+ },
+ {
+  "n": 4,
+  "title": "Train the language model longer and faster",
+  "session": "Session 1: first pilot run"
+ },
+ {
+  "n": 5,
+  "title": "A bigger language model",
+  "session": "Session 1: first pilot run"
+ },
+ {
+  "n": 6,
+  "title": "vec2vec again, on the bigger model",
+  "session": "Session 1: first pilot run"
+ },
+ {
+  "n": 7,
+  "title": "The easiest possible test of the aligner",
+  "session": "Session 1: first pilot run"
+ },
+ {
+  "n": 8,
+  "title": "Why distribution matching fails",
+  "session": "Session 1: first pilot run"
+ },
+ {
+  "n": 9,
+  "title": "Adding time to distribution matching",
+  "session": "Session 1: first pilot run"
+ },
+ {
+  "n": 10,
+  "title": "Judge mappings by dynamics",
+  "session": "Session 1: first pilot run"
+ },
+ {
+  "n": 11,
+  "title": "The dynamics judge, language to frames",
+  "session": "Session 1: first pilot run"
+ },
+ {
+  "n": 12,
+  "title": "Is the judge right for language too?",
+  "session": "Session 2"
+ },
+ {
+  "n": 13,
+  "title": "The cipher control",
+  "session": "Session 2"
+ },
+ {
+  "n": 14,
+  "title": "Why the neural mapping failed",
+  "session": "Session 2"
+ },
+ {
+  "n": 15,
+  "title": "Make the language model hold a full snapshot",
+  "session": "Session 2"
+ },
+ {
+  "n": 16,
+  "title": "The judge again, with the new language model",
+  "session": "Session 2"
+ },
+ {
+  "n": 17,
+  "title": "Match the slowest-changing patterns on each side",
+  "session": "Session 2"
+ },
+ {
+  "n": 18,
+  "title": "A compressed summary in the frame's own format, then a swap search",
+  "session": "Session 2"
+ },
+ {
+  "n": 19,
+  "title": "What raw counts reveal",
+  "session": "Session 2"
+ },
+ {
+  "n": 20,
+  "title": "The predictive-state language model, from scratch",
+  "session": "Session 2"
+ },
+ {
+  "n": 21,
+  "title": "Decipherment, first version",
+  "session": "Session 3: decipherment"
+ },
+ {
+  "n": 22,
+  "title": "Decipherment with per-position word tables",
+  "session": "Session 3: decipherment"
+ },
+ {
+  "n": 23,
+  "title": "Start EM from the truth (a basin test)",
+  "session": "Session 3: decipherment"
+ },
+ {
+  "n": 24,
+  "title": "A small starting hint: who is speaking",
+  "session": "Session 3: decipherment"
+ },
+ {
+  "n": 25,
+  "title": "Find each stream's structure on its own",
+  "session": "Session 3: decipherment"
+ },
+ {
+  "n": 26,
+  "title": "Shared tables: build the matching into the model",
+  "session": "Session 3: decipherment"
+ },
+ {
+  "n": 27,
+  "title": "Search all matchings without the truth",
+  "session": "Session 3: decipherment"
+ },
+ {
+  "n": 28,
+  "title": "Use the language model's summaries instead of words",
+  "session": "Session 3: decipherment"
+ },
+ {
+  "n": 29,
+  "title": "A neural reader inside the decipherment",
+  "session": "Session 3: decipherment"
+ },
+ {
+  "n": 30,
+  "title": "One more role: \"where the actor is\"",
+  "session": "Session 3: decipherment"
+ },
+ {
+  "n": 31,
+  "title": "A frame model that predicts whole frames",
+  "session": "Session 3 continued: two trained models"
+ },
+ {
+  "n": 32,
+  "title": "Decipherment with a particle filter",
+  "session": "Session 3 continued: two trained models"
+ },
+ {
+  "n": 33,
+  "title": "Add the language model's summaries to the particle filter",
+  "session": "Session 3 continued: two trained models"
+ },
+ {
+  "n": 34,
+  "title": "Fix the objects: handle the episode's start exactly",
+  "session": "Session 3 continued: two trained models"
+ },
+ {
+  "n": 35,
+  "title": "Stop the slide; compare true and mirror",
+  "session": "Session 3 continued: two trained models"
+ },
+ {
+  "n": 36,
+  "title": "Speed",
+  "session": "Session 3 continued: two trained models"
+ },
+ {
+  "n": 37,
+  "title": "A faster search: one fit, then relabel words to score every matching",
+  "session": "Session 3 continued: two trained models"
+ },
+ {
+  "n": 38,
+  "title": "Relabel with words only",
+  "session": "Session 3 continued: two trained models"
+ },
+ {
+  "n": 39,
+  "title": "Two-stage search",
+  "session": "Session 3 continued: two trained models"
+ },
+ {
+  "n": 40,
+  "title": "Rescore the finalists with corrected scoring",
+  "session": "Session 3 continued: two trained models"
+ },
+ {
+  "n": 41,
+  "title": "Move the method into the package and freeze it",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 42,
+  "title": "Pair 1, first run: the objects fail. Why, and a fix",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 43,
+  "title": "The pairwise fix in the real loop, and words alone",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 44,
+  "title": "A word model where each sentence states one fact",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 45,
+  "title": "The new word model: pair 0, and words alone",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 46,
+  "title": "Rules fixed in advance for the next runs",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 47,
+  "title": "Pairwise summary inputs with the new word model, and the decision",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 48,
+  "title": "Pair 2's two models",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 49,
+  "title": "The frozen method end to end on pair 1",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 50,
+  "title": "The frozen method end to end on pair 0, and the gate",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 51,
+  "title": "Pair 2: the clean confirmation",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 52,
+  "title": "Purity: what each trained model contributes, and the agent-order tie",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 53,
+  "title": "The controls as full pipelines on all three pairs",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 54,
+  "title": "Variance: restarts within a pair against differences between pairs",
+  "session": "Session 4: packaging and the fresh pair"
+ },
+ {
+  "n": 55,
+  "title": "Correction: one accuracy measure for every result",
+  "session": "Session 5: reporting"
+ }
+]

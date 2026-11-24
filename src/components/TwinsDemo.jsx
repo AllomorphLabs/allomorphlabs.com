@@ -1,17 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Eyebrow, GITHUB_URL } from './shared.jsx'
+import { Eyebrow } from './shared.jsx'
 import GridWorld from './GridWorld.jsx'
 import { buildSteps } from './twinsScript.js'
 
 const STEP_MS = 2200
-const PROPOSAL_URL = '/proposals/predicting-the-limits-of-unsupervised-grounding.docx'
-const REPO_URL = `${GITHUB_URL}/unsupervised-grounding`
-
-const HOW_IT_WORKS = [
-  { n: '1', title: 'One AI only reads', body: 'It learns from sentences about the world, written in a made-up language.' },
-  { n: '2', title: 'Another AI only watches', body: 'It learns from silent recordings of the same world. It never sees a word.' },
-  { n: '3', title: 'We match them up, with no dictionary', body: 'Which name in the text belongs to which figure in the video? The only clue is how each one behaves.' },
-]
 
 function MatchBar({ label, value, width, tone }) {
   return (
@@ -49,45 +41,15 @@ export default function TwinsDemo() {
   }
 
   return (
-    <section id="project" className="section section--tinted">
+    <section id="twins" className="section section--tinted">
       <div className="container stack-44">
         <div className="section-head section-head--wide">
-          <div className="tag-row">
-            <Eyebrow tone="amber">Project 01</Eyebrow>
-            <span className="pill">Proposal · Nov 2026</span>
-          </div>
-          <h2 className="h2 h2--lg">Can an AI that has only ever read words understand the world they describe?</h2>
+          <Eyebrow tone="ice">The catch</Eyebrow>
+          <h2 className="h2 h2--lg">Some things can’t be told apart, however clever the AI.</h2>
           <p className="lede">
-            Language models learn from text alone. They never see, hear or touch anything, yet they
-            often seem to understand. We test how far that understanding can really go, inside a tiny
-            world we built ourselves, where we know every right answer.
+            An illustration, not real data: two twins named in the text as Zib and Mov, and two
+            figures in the video. Which name goes with which figure? The only clue is behaviour.
           </p>
-          <div className="button-row">
-            <a
-              className="btn btn--ghost btn--small"
-              href={PROPOSAL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Read the proposal (Word document, opens in a new tab)"
-            >
-              Read the proposal (.docx)
-            </a>
-            <a className="btn btn--ghost btn--small" href={REPO_URL}>
-              View the code on GitHub
-            </a>
-          </div>
-        </div>
-
-        <div className="how-grid">
-          {HOW_IT_WORKS.map((s) => (
-            <div key={s.n} className="how">
-              <div className="how__num">{s.n}</div>
-              <div className="how__text">
-                <div className="how__title">{s.title}</div>
-                <div className="how__body">{s.body}</div>
-              </div>
-            </div>
-          ))}
         </div>
 
         <div className="catch">
