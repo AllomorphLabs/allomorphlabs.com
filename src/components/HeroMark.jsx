@@ -1,5 +1,3 @@
-import { Eyebrow } from './shared.jsx'
-
 // Pixel cells for the right half of the hero mark, computed once.
 const CX = 200
 const CY = 200
@@ -18,7 +16,8 @@ for (let i = 0; i < 8; i++) {
   }
 }
 
-function HeroMark() {
+/** The animated split-circle mark: solid half and pixel half. */
+export function HeroMark() {
   return (
     <svg viewBox="0 0 400 400" className="hero-mark" aria-hidden="true">
       <circle className="orbit orbit--a" cx="200" cy="200" r="178" fill="none" stroke="var(--line)" strokeWidth="1.5" strokeDasharray="2 10" />
@@ -41,39 +40,5 @@ function HeroMark() {
       ))}
       <line className="scan" x1="200" y1="72" x2="330" y2="72" stroke="var(--ice)" strokeWidth="1.5" strokeOpacity="0.8" />
     </svg>
-  )
-}
-
-export default function Hero() {
-  return (
-    <section id="top" className="hero">
-      <div className="container hero__inner">
-        <div className="hero__copy">
-          <div className="hero__kicker">
-            <span className="pulse-dot" />
-            <Eyebrow>Independent research · Computer science</Eyebrow>
-          </div>
-          <h1 className="hero__title">
-            Same structure.
-            <br />
-            <span className="accent">Different forms.</span>
-          </h1>
-          <p className="hero__lede">
-            Allomorph is an independent research organisation working on hard, open problems in
-            computer science, in machine learning and beyond. We build small, controlled worlds
-            where we already know the right answer, then find out exactly what an algorithm can
-            learn, and where it hits a hard limit.
-          </p>
-          <div className="button-row">
-            <a className="btn" href="#project">Read the first proposal</a>
-            <a className="btn btn--ghost" href="#approach">How we work</a>
-          </div>
-        </div>
-        <div className="hero__art">
-          <div className="hero__glow" aria-hidden="true" />
-          <HeroMark />
-        </div>
-      </div>
-    </section>
   )
 }
