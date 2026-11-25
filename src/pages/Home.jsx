@@ -19,7 +19,7 @@ const PRINCIPLES = [
   {
     num: '02',
     title: 'Predict before you measure',
-    body: 'We work out from first principles what must happen, publish the prediction and its test in advance, and only then run the experiment.',
+    body: 'We work out what must happen, publish that prediction and how we’ll test it, and only then run the experiment.',
   },
   {
     num: '03',
@@ -43,14 +43,14 @@ function Hero() {
             <Eyebrow>Independent research · Computer science</Eyebrow>
           </div>
           <h1 className="hero__title">
-            Same structure.
+            Exact answers
             <br />
-            <span className="accent">Different forms.</span>
+            <span className="accent">to elusive questions.</span>
           </h1>
           <p className="hero__lede">
-            Allomorph is an independent research lab working on hard, open problems in computer
-            science. We build small worlds where the right answer is known, predict in advance what
-            an algorithm must get wrong, and then check.
+            Allomorph is an independent research lab. We build small worlds where every answer is
+            known, predict in advance which mistakes an AI can’t avoid, and test whether we were
+            right.
           </p>
           <div className="button-row">
             <a className="btn" href={PROJECT}>See Project 01</a>
@@ -78,14 +78,13 @@ function Featured() {
             <span className="pill pill--live"><span className="pulse-dot pulse-dot--small" />Phase 3 under way</span>
           </div>
           <h2 className="h2 h2--lg">
-            When an AI decodes a language with no dictionary, which mistakes are unavoidable?
+            Can an AI decode a language using only what another AI has seen?
           </h2>
           <p className="lede">
             One AI reads sentences in an invented language. Another watches silent recordings of
-            the same small world. They never share data. We decode the first using the second, with
-            no dictionary, and predict in advance exactly which mix-ups must remain: a coin toss
-            where two things are interchangeable, occasional where they’re nearly alike, and none
-            anywhere else.
+            the same small world. We decode the first using the second, with no dictionary, and say
+            in advance which mix-ups must remain: a coin toss where two things are interchangeable,
+            occasional where they’re nearly alike, and none anywhere else.
           </p>
         </div>
 
@@ -100,16 +99,16 @@ function Featured() {
               <path d="M7 0 V30 M1 24 L7 32 L13 24" fill="none" stroke="var(--muted)" strokeWidth="1.5" />
             </svg>
             <div className="feature__row">
-              <Eyebrow tone="ice">Decoded into what the watcher would see</Eyebrow>
+              <Eyebrow tone="ice">Decoded into a frame, in the watcher’s format</Eyebrow>
               <FrameCells bits={SAMPLE_FRAME} size="small" label="A frame: 45 yes/no cells" />
               <p className="small muted">A frame of 45 yes/no facts, in shuffled order, with no labels</p>
             </div>
-            <figcaption className="small muted">Real pilot data from the untouched confirmation pair.</figcaption>
+            <figcaption className="small muted">Real pilot data, from a pair the method had never seen.</figcaption>
           </figure>
 
           <div className="feature__stats">
-            <Stat value={pct(confirm.method)} label="of held-out sentences decoded to exactly the right world state, on a pair the method had never seen" />
-            <Stat value={pct(mean('baseline'))} label="for the same method with no trained models: word and frame counts alone" />
+            <Stat value={pct(confirm.method)} label="of new sentences decoded exactly right, every fact correct, on a pair the method had never seen" />
+            <Stat value={pct(mean('baseline'))} label="with the two AIs taken out, using word and frame counts alone" />
             <Stat value={pct(confirm.chance, 2)} label="by chance" />
             <div className="button-row">
               <a className="btn" href={PROJECT}>Explore the project</a>
@@ -141,7 +140,7 @@ function Principles() {
       <div className="container stack-48">
         <div className="section-head">
           <Eyebrow tone="ice">How we work</Eyebrow>
-          <h2 className="h2 h2--xl">We turn big open questions into experiments with a checkable answer.</h2>
+          <h2 className="h2 h2--xl">How we turn a debate into an experiment.</h2>
         </div>
         <div className="card-row card-row--4">
           {PRINCIPLES.map((p) => (
@@ -169,9 +168,9 @@ function Latest() {
           <Eyebrow tone="ice">Working in the open</Eyebrow>
           <h2 className="h2">Every experiment, as it happens.</h2>
           <p className="lede lede--small">
-            The research log records why each experiment was run, how, what happened and what it
-            means, in plain language. So far it holds {entries.length} experiments from Project 01,
-            and most of the early ones failed. That's the point of keeping it.
+            Why each experiment was run, how, what happened and what it means, in plain language.
+            {entries.length} experiments so far: the breakthroughs and the dead ends, all kept, none
+            rewritten afterwards.
           </p>
           <div className="button-row">
             <a className="btn btn--ghost" href={LOG}>Read the full log</a>
@@ -197,24 +196,24 @@ function Roadmap() {
     <section className="section section--tinted">
       <div className="container stack-40">
         <div className="section-head">
-          <Eyebrow tone="ice">Beyond ML</Eyebrow>
-          <h2 className="h2">One project under way. Two ideas that might come next.</h2>
+          <Eyebrow tone="ice">What we’re working on</Eyebrow>
+          <h2 className="h2">One project under way, and two on the horizon.</h2>
         </div>
         <div className="roadmap">
           <a href={PROJECT} className="card card--dark card--active card--link">
             <Eyebrow tone="amber">01 · Active</Eyebrow>
             <div className="roadmap__title">Predicting the limits of unsupervised grounding</div>
-            <span className="roadmap__link">Pilot and literature check complete. Now: grid video →</span>
+            <span className="roadmap__link">Pilot and literature check complete. Now: grid video and the pre-registration →</span>
           </a>
           <a href={IDEA_CIRCUITS} className="card card--dark card--dashed card--link">
             <Eyebrow>Idea · not started</Eyebrow>
             <div className="roadmap__title roadmap__title--muted">Can interpretability find a circuit we planted?</div>
-            <span className="small muted">Just an idea for now →</span>
+            <span className="small muted">Hide a known algorithm inside a network, and see if the tools find it →</span>
           </a>
           <a href={IDEA_LANGUAGE} className="card card--dark card--dashed card--link">
             <Eyebrow>Idea · not started</Eyebrow>
             <div className="roadmap__title roadmap__title--muted">Can we read a language nobody designed?</div>
-            <span className="small muted">Just an idea for now →</span>
+            <span className="small muted">Decode a language invented by AIs, with no designer to ask →</span>
           </a>
         </div>
       </div>
@@ -230,8 +229,8 @@ function OpenCode() {
           <Eyebrow tone="ice">Open by default</Eyebrow>
           <h2 className="h2">Every world, model and prediction, in the open.</h2>
           <p className="lede lede--small">
-            Simulators, training code and predictions live under one organisation. Every run records
-            its settings, random seeds and code version, so anyone can rerun it and check the claims.
+            The simulators, models, training code and predictions are all public. Every run records
+            its settings, random seeds and code version, so anyone can rerun it and check our claims.
           </p>
           <div className="button-row">
             <a className="btn" href={REPO_URL}>Browse the code</a>
@@ -251,6 +250,9 @@ function OpenCode() {
               <span className="accent">$</span> uv sync && uv run pytest{'\n'}
               <span className="muted"># make pilot corpus pairs: two independent data streams each</span>{'\n'}
               <span className="accent">$</span> uv run python -m grounding.data.make configs/pilot.yaml --pairs 0-9{'\n'}
+              <span className="muted"># train each stream's model, from scratch</span>{'\n'}
+              <span className="accent">$</span> uv run python -m grounding.models.train runs/pilot/pair-000 --stream lang --out runs/pilot/pair-000/models/lang-ps{'\n'}
+              <span className="accent">$</span> uv run python -m grounding.models.train runs/pilot/pair-000 --stream obs --out runs/pilot/pair-000/models/obs-joint{'\n'}
               <span className="muted"># align them with no paired data, then score</span>{'\n'}
               <span className="accent">$</span> uv run python -m grounding.align.decipher runs/pilot/pair-000{'\n'}
               <span className="accent">$</span> uv run python -m grounding.analysis.score runs/pilot/pair-000 --kind decipher

@@ -13,9 +13,10 @@ export default function NameMeaning() {
         <div className="word__def">
           <Eyebrow>noun · linguistics</Eyebrow>
           <p>
-            One of several surface forms of the same underlying unit. From Greek <em>allos</em>,
-            other, and <em>morphē</em>, form. Our work keeps returning to that idea: two very
-            different descriptions of one hidden structure, and how much of it each can recover.
+            One of several surface forms of the same underlying element. From Greek <em>allos</em>,
+            other, and <em>morphē</em>, form. That’s what we study: when two very different AIs
+            learn about the same world, without ever comparing notes, how much do they come to
+            agree on, and what can neither pin down?
           </p>
         </div>
       </div>

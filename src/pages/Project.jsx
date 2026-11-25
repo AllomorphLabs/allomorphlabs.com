@@ -26,7 +26,7 @@ const PHASES = [
   { n: 1, title: 'Pilot', body: 'A tiny world, state-vector frames. Gate: beat the co-occurrence control, and measure variance.', status: 'done' },
   { n: 2, title: 'Literature and novelty check', body: 'Gate: the design is confirmed as novel, or adjusted. It was adjusted: see below.', status: 'done' },
   { n: 3, title: 'World, streams and pre-registration', body: 'First, grid-video frames run through the whole method (see below). Then switchable symmetries and near-symmetries, every control, and the predictions published before the main runs.', status: 'now' },
-  { n: 4, title: 'Train and align', body: 'The method frozen on the cipher control, then the main conditions, at least 10 independent pairs each.', status: 'later' },
+  { n: 4, title: 'Train and align', body: 'The method frozen on the cipher control and checked on a calibration world, then the main conditions, at least 10 independent pairs each.', status: 'later' },
   { n: 5, title: 'Sweeps and write-up', body: 'Break symmetries one at a time; vary how far the two worlds differ. Publish everything, nulls included.', status: 'later' },
 ]
 
@@ -43,14 +43,14 @@ const HYPOTHESES = [
     claim: 'The two models can be aligned with no paired data',
     status: 'Pilot gate met',
     tone: 'good',
-    note: `${pct(avg('method'))} of held-out sentences right on average, against ${pct(avg('baseline'))} for the co-occurrence control. The scrambled-world control isn’t built yet. On grid video, not yet: a wrong matching currently scores higher than the truth.`,
+    note: `${pct(avg('method'))} of held-out sentences right on average, against ${pct(avg('baseline'))} for the co-occurrence control. The scrambled-world control isn’t built yet. On grid video, told which word is which, the method now decodes 37–47% of frames exactly right; whether it can find that out for itself is being tested.`,
   },
   {
     id: 'H3',
     claim: 'The remaining errors follow the world’s symmetries, and near-symmetries are confused in proportion to how nearly they hold',
     status: 'Not yet tested',
     tone: 'muted',
-    note: 'For two models of the same data, this limit was proven in 2026. Ours share a world but no data, so the proof doesn’t cover them, and nobody has predicted how often near-symmetries are confused. With the twins’ order now left free, the two twin matchings tie on grid video, as predicted: a first measurement, not yet evidence.',
+    note: 'For two models of the same data, this limit was proven in 2026. Ours share a world but no data, so the proof doesn’t cover them, and nobody has predicted how often near-symmetries are confused. Two first measurements, not yet evidence: the two twin matchings tie on grid video, as predicted, and a near-tie turned up unprompted, when the method chose the places back to front (see grid video, below).',
   },
   {
     id: 'H4',
@@ -65,7 +65,7 @@ const LESSONS = [
   {
     entries: [1, 9],
     title: 'Matching the two models’ insides directly failed',
-    body: 'The proposal’s first method lines up the two models’ internal representations so that their overall shapes match. It stayed at chance, even on the easiest test: two frame streams that differ only in the order of their cells. A single snapshot doesn’t show which places are next to which, so many wrong matchings look as good as the right one.',
+    body: 'The first method we tried lined up the two models’ internal representations so that their overall shapes match. It stayed at chance, even on the easiest test: two frame streams that differ only in the order of their cells. A single snapshot doesn’t show which places are next to which, so many wrong matchings look as good as the right one.',
   },
   {
     entries: [10, 20],
@@ -195,7 +195,7 @@ function HowItWorks() {
           <Fig
             n={2}
             title="Two streams, from separate runs of the world"
-            caption="Left: what the reader learns from, real sentences from the pilot language with glosses added for you. The words were generated at random and checked to be far from English. Right: what the watcher learns from, frames of 45 yes/no facts in a shuffled order, with no labels. The two streams come from different runs of the world, with random lengths, so nothing lines up between them. These frames encode the same moments as the sentences, for illustration only."
+            caption="Left: what the reader learns from, real sentences from the pilot language with glosses added for you. The words were generated at random and checked to be far from English. Right: what the watcher learns from, frames of 45 yes/no facts in a shuffled order, with no labels. The two streams come from different runs of the world, with random lengths, so nothing lines up between them. These frames encode the same moments as the sentences, for illustration only. Lists of facts were the pilot’s format; the main study shows the watcher grid video instead (below), and keeps lists of facts as an easier comparison."
           >
             <div className="streams">
               <div className="stream stream--lang">
@@ -254,8 +254,8 @@ function HowItWorks() {
           <Eyebrow tone="amber">Then check against the truth</Eyebrow>
           <p>
             Only after all that do we open the simulator’s hidden record. For each held-out sentence: is the state it
-            was decoded to exactly the true one, all 45 facts? Mistakes should appear only where the world has a
-            tie, like the twins, and nowhere else.
+            was decoded to exactly the true one, every fact? Mistakes should appear only where the world has a tie,
+            like the twins, or a near-tie, and nowhere else.
           </p>
         </div>
       </div>
@@ -399,10 +399,10 @@ function GridVideo() {
       <div className="container stack-48">
         <div className="section-head section-head--wide">
           <Eyebrow tone="amber">Phase 3 · under way</Eyebrow>
-          <h2 className="h2 h2--lg">Grid video: the first attempt.</h2>
+          <h2 className="h2 h2--lg">Grid video: hunger learned, the full search under test.</h2>
           <p className="lede">
-            The proposal’s main condition shows the watcher pictures, not lists of facts. We built grid video and ran
-            the whole method on it. Some of it works. The main part doesn’t yet.
+            The proposal’s main condition shows the watcher pictures, not lists of facts. Told which word is which, the
+            method now reads grid video well. Whether it can work that out for itself is the test running now.
           </p>
         </div>
         <div className="grid-video">
@@ -420,32 +420,42 @@ function GridVideo() {
               <span className="status status--good">Works</span>
               <p>
                 <strong className="ink">Nothing hand-written.</strong> The frames’ structure (places, things,
-                appearances, carrying) and the kinds of words are now found from each stream alone, and every order of
-                the twins is searched. Checked against the hidden key afterwards, the structure was exactly right.
+                appearances, carrying) and the kinds of words are found from each stream alone, for grid video and now
+                for lists of facts too, and every order of the twins is searched.
               </p>
             </div>
             <div className="takeaway-item">
               <span className="status status--good">Works</span>
               <p>
-                <strong className="ink">The twins tie.</strong> The true matching and the one with the agents swapped
-                score 17.00 and 17.02 on the method’s own measure, within its noise, as the symmetry predicts.
+                <strong className="ink">Hunger, learned with no pairing.</strong> Fitted from its own guesses, the
+                method never learned to read hunger: “no effect” was a trap it couldn’t climb out of. A new step
+                restarts facts that have no effect along the patterns left unexplained, and keeps a restart only if it
+                fits better. Both twins’ hunger is now read 94–97% of the time.
               </p>
             </div>
             <div className="takeaway-item">
-              <span className="status status--warn">Not yet</span>
+              <span className="status status--good">Better</span>
               <p>
-                <strong className="ink">The right matching doesn’t win.</strong> A matching with all three object
-                words wrong scores 17.10, higher than the truth. Even under the true matching only about 15% of frames
-                decode exactly right, against about 79% with the pilot’s lists of facts.
+                <strong className="ink">37–47% of frames exactly right</strong>, told which word is which, up from
+                about 15–20%. Reading the summaries with a model fitted on the true frames gives 64%. What’s left is
+                mostly where the objects are.
               </p>
             </div>
             <div className="takeaway-item">
-              <span className="status status--warn">Why</span>
+              <span className="status status--warn">Under test</span>
               <p>
-                <strong className="ink">Hunger isn’t learned.</strong> The language model’s summaries do hold it: with
-                a summary model fitted on the true frames, the method decodes 64% of frames exactly right. Fitted
-                from its own guesses, it never learns to read hunger. That’s what we’re fixing next, keeping the grid
-                video itself unmarked.
+                <strong className="ink">The full search, with no hints.</strong> Earlier, a matching with all three
+                object words wrong scored higher than the truth. The search is now being rerun with the new step, on
+                grid video and on lists of facts.
+              </p>
+            </div>
+            <div className="takeaway-item">
+              <span className="status status--warn">A near-tie</span>
+              <p>
+                <strong className="ink">The places, back to front.</strong> The places lie on a path that reads the
+                same both ways, except that the twins eat at the bush. With nothing hand-written, the method chose the
+                mirror image: the kind of confusion H3 predicts. Every part of the method that can’t see hunger is
+                fooled by it; with the new step, the right order won a direct comparison by a wide margin.
               </p>
             </div>
             <a className="small" href={logEntry(56)}>
@@ -499,10 +509,12 @@ function Next() {
         <div className="callout">
           <Eyebrow tone="amber">Open issues carried forward</Eyebrow>
           <ul className="plain-list">
-            <li>On grid video, the method has to learn to read hunger from its own guesses, without marking who acted in the pictures (entries 63-66).</li>
-            <li>State vectors still sort their facts into kinds with a hand-written step. A general one, working from the statistics alone, is being built.</li>
+            <li>The full search on grid video, with no hints, is under test (entries 69 onwards).</li>
+            <li>On grid video, where the objects are is now the weakest part of what is decoded.</li>
+            <li>The pairs used to develop the method can’t confirm it. Once it is frozen, it runs once on fresh pairs, as the pilot’s did.</li>
+            <li>Still to build in this phase: the cipher control, the calibration world, the scrambled world, the grammar-only control and the symmetry-free world.</li>
             <li>A richer world, to give the trained frame model room to show what it adds.</li>
-            <li>Done: the search now tries every order of the twins, and for grid video the sorting into kinds is general (entries 58-59 and 65).</li>
+            <li>Done: every order of the twins is searched; both observation formats sort their units into kinds from their own statistics; hunger is learned on grid video without marking who acted (entries 58-76).</li>
           </ul>
         </div>
       </div>
