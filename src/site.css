@@ -514,7 +514,7 @@
 .phase__body { color: var(--body); line-height: 1.6; margin-top: 4px; }
 .phase--later .phase__title { color: var(--body); }
 
-.doc-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.doc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .doc-card .pill { align-self: flex-start; }
 
 .commit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
@@ -653,3 +653,118 @@
 .idea { max-width: 780px; display: flex; flex-direction: column; gap: 32px; }
 .idea__prior { display: flex; flex-direction: column; gap: 12px; }
 .callout--muted { border-left-color: var(--muted); }
+
+/* ---------- Model architecture diagrams ---------- */
+.arch-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.arch {
+  margin: 0;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+.arch--lang { border-top: 2px solid var(--amber); }
+.arch--obs { border-top: 2px solid var(--ice); }
+.arch__head { display: flex; flex-direction: column; gap: 6px; }
+.arch__total { color: var(--muted); font-size: 14px; }
+.arch__total-n { color: var(--ink); font-family: var(--font-display); font-size: 22px; font-weight: 600; margin-right: 4px; }
+.arch__caption { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+/* A vertical stack of layers, joined by short connectors: data flows downwards. */
+.arch__stack { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 22px; }
+.arch__layer {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px 16px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+}
+.arch__stack > .arch__layer + .arch__layer::before,
+.arch__fork::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -23px;
+  height: 22px;
+  border-left: 1px solid var(--muted);
+}
+.arch__layer--repeat {
+  margin: 0 10px 10px 0;
+  box-shadow: 5px 5px 0 -1px var(--panel-2), 5px 5px 0 0 var(--line), 10px 10px 0 -1px var(--panel-2), 10px 10px 0 0 var(--line);
+}
+.arch__layer--dashed { border-style: dashed; background: transparent; }
+.arch__layer--amber { border-color: var(--amber); }
+.arch__layer--ice { border-color: var(--ice); }
+.arch__layer-main { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.arch__layer-name { color: var(--ink); font-weight: 600; font-size: 15px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.arch__layer-what { color: var(--body); font-size: 14px; line-height: 1.55; margin: 0; }
+.arch__layer-nums { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; font-size: 12px; color: var(--body); white-space: nowrap; }
+.arch__times { color: var(--amber); font-size: 13px; }
+.arch--obs .arch__times { color: var(--ice); }
+.arch__tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-weight: 500;
+}
+.arch__tag--amber { border-color: var(--amber); color: var(--amber); }
+.arch__tag--ice { border-color: var(--ice); color: var(--ice); }
+.arch__tokens { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.arch__token { font-size: 12px; padding: 2px 6px; border-radius: 5px; background: var(--bg); border: 1px solid var(--line); color: var(--amber-hover); }
+.arch__frame { margin-top: 4px; }
+
+/* The language model splits into two heads after its last block. */
+.arch__fork { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.arch__fork .arch__layer { grid-template-columns: minmax(0, 1fr); }
+.arch__fork .arch__layer-nums { align-items: flex-start; white-space: normal; }
+
+/* One block, shared by both models. */
+.block-flow { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 32px; align-items: start; }
+.block-flow__steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.block-step { display: flex; flex-direction: column; gap: 4px; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel-2); }
+.block-step__name { color: var(--ink); font-weight: 600; font-size: 14.5px; }
+.block-step__what { color: var(--body); font-size: 14px; line-height: 1.55; }
+.block-step--key { border-color: var(--muted); }
+.block-step--add { background: transparent; border-style: dashed; }
+.block-step--add .block-step__name { color: var(--muted); font-weight: 500; font-family: var(--font-mono); font-size: 12.5px; }
+.block-attn { display: flex; flex-direction: column; gap: 12px; }
+.block-attn__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; max-width: 220px; }
+.block-attn__grid span { aspect-ratio: 1; border-radius: 3px; border: 1px solid var(--line); }
+.block-attn__grid span.on { background: var(--muted); border-color: var(--muted); }
+.block-sizes { width: 100%; border-collapse: collapse; font-size: 14px; }
+.block-sizes th, .block-sizes td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--line); }
+.block-sizes thead th { color: var(--ink); background: var(--panel-2); font-weight: 600; }
+.block-sizes tbody th { color: var(--body); font-weight: 500; }
+.block-sizes td { color: var(--ink); white-space: nowrap; }
+.block-sizes tr:last-child th, .block-sizes tr:last-child td { border-bottom: 0; }
+
+@media (max-width: 1040px) {
+  .arch-pair { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .arch { padding: 18px 16px; }
+  .arch__layer { grid-template-columns: minmax(0, 1fr); }
+  .arch__layer-nums { align-items: flex-start; flex-direction: row; flex-wrap: wrap; gap: 4px 12px; white-space: normal; }
+  .arch__fork { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .arch__fork > .arch__stack + .arch__stack { position: relative; }
+  .block-flow { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}
+.arch__fork-label { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 13px; text-align: center; background: var(--panel); position: relative; }
+@media (max-width: 760px) {
+  .arch__fork-label { text-align: left; }
+  .arch__fork > .arch__stack { border-left: 2px solid var(--line); padding-left: 12px; }
+  .block-sizes { font-size: 13px; }
+  .block-sizes th, .block-sizes td { padding: 8px 10px; white-space: normal; }
+}

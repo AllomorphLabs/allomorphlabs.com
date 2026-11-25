@@ -47,21 +47,21 @@ export default function TwinsDemo() {
           <Eyebrow tone="ice">The catch</Eyebrow>
           <h2 className="h2 h2--lg">Some things can’t be told apart, however clever the AI.</h2>
           <p className="lede">
-            An illustration, not real data: two twins named in the text as Zib and Mov, and two
+            An illustration, not real data: two twins named in the text as Tofem and Bikop, and two
             figures in the video. Which name goes with which figure? The only clue is behaviour.
           </p>
         </div>
 
         <div className="catch">
           <p>
-            <strong className="accent">The catch.</strong> Zib and Mov are perfect twins. Each lives
+            <strong className="accent">The catch.</strong> Tofem and Bikop are perfect twins. Each lives
             in an identical hut, and every day they go to the river together, eat at the berry bush
             together and go home at the same moment, standing in the very same spots. Nothing tells
-            them apart. Try it: give Zib one evening habit that Mov doesn’t have.
+            them apart. Try it: give Tofem one evening habit that Bikop doesn’t have.
           </p>
           <div className="button-row">
             <button type="button" className="btn" onClick={toggleHabit}>
-              {habit ? 'Reset' : 'Give Zib an evening habit'}
+              {habit ? 'Reset' : 'Give Tofem an evening habit'}
             </button>
             <button
               type="button"
@@ -99,19 +99,19 @@ export default function TwinsDemo() {
               )}
             </ol>
             <p className="panel__note">
-              Knows the characters only as the words “zib” and “mov”. English translations are shown for you.
+              Knows the characters only as the words “tofem” and “bikop”. English translations are shown for you.
             </p>
           </div>
 
           {/* Match */}
           <div className="panel panel--raised panel--centre">
             <Eyebrow tone="amber">Best possible match</Eyebrow>
-            <MatchBar label="Zib is figure 1" value={habit ? 'Only fit' : '50%'} width={habit ? '100%' : '50%'} tone="amber" />
-            <MatchBar label="Zib is figure 2" value={habit ? 'Ruled out' : '50%'} width={habit ? '2%' : '50%'} tone="ice" />
+            <MatchBar label="Tofem is figure 1" value={habit ? 'Only fit' : '50%'} width={habit ? '100%' : '50%'} tone="amber" />
+            <MatchBar label="Tofem is figure 2" value={habit ? 'Ruled out' : '50%'} width={habit ? '2%' : '50%'} tone="ice" />
             <p className="verdict" aria-live="polite">
               {habit
-                ? 'Now one twin makes an extra evening trip to the river on their own: Zib in the text, figure 1 in the video. Only one answer fits, so the match gets it right.'
-                : 'Zib and Mov do everything together, in the same place at the same time, so “Zib is figure 1” and “Zib is figure 2” fit the evidence equally well. It is a coin toss, and no AI, however clever, can do better.'}
+                ? 'Now one twin makes an extra evening trip to the river on their own: Tofem in the text, figure 1 in the video. Only one answer fits, so the match gets it right.'
+                : 'Tofem and Bikop do everything together, in the same place at the same time, so “Tofem is figure 1” and “Tofem is figure 2” fit the evidence equally well. It is a coin toss, and no AI, however clever, can do better.'}
             </p>
           </div>
 
@@ -141,11 +141,12 @@ export default function TwinsDemo() {
           <div className="takeaway__label"><Eyebrow tone="ice">Why it matters</Eyebrow></div>
           <p>
             Any AI that learns from patterns alone hits this wall, however powerful it is. Because we
-            built the world, we can list every tie like Zib and Mov in advance. That lets us predict
+            built the world, we can list every tie like Tofem and Bikop in advance. That lets us predict
             exactly which mix-ups must happen, and check that they disappear the moment a tie is
-            broken. The result is a precise answer to{' '}
-            <span className="ink">how much meaning a text-only AI can be shown to hold</span>, and a
-            map of what it can never pin down.
+            broken. Things that are only nearly alike should be mixed up some of the time, and more
+            often the more alike they are. The result is a precise answer to{' '}
+            <span className="ink">how much of what words mean can be recovered from patterns alone</span>,
+            and a map of what never can be.
           </p>
         </div>
       </div>

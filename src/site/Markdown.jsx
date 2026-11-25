@@ -1,7 +1,7 @@
 import { Marked } from 'marked'
 import { docLink } from './links.js'
 
-/** GitHub-style heading ids, so links like #pilot-results-and-revisions keep working. */
+/** GitHub-style heading ids, so links like #how-this-proposal-came-to-be keep working. */
 export function slug(text) {
   return text
     .toLowerCase()

@@ -7,6 +7,7 @@ export const LOG = `${PROJECT}log/`
 export const ABOUT = '/about/'
 export const IDEA_CIRCUITS = '/research/ideas/planted-circuits/'
 export const IDEA_LANGUAGE = '/research/ideas/undesigned-language/'
+export const LIT_REVIEW = `${REPO_URL}/blob/main/docs/literature-review.md`
 export const PROPOSAL_DOCX = '/proposals/predicting-the-limits-of-unsupervised-grounding.docx'
 
 /** A link to one entry of the research log. */

@@ -2,13 +2,14 @@ import Explorer from '../components/Explorer.jsx'
 import { FrameCells } from '../components/FrameCells.jsx'
 import { ResultsChart, VarianceChart } from '../components/Charts.jsx'
 import TwinsDemo from '../components/TwinsDemo.jsx'
+import ModelDiagrams from '../components/ModelDiagrams.jsx'
 import { WorldMap } from '../components/WorldMap.jsx'
 import { pathOrder } from '../site/world.js'
 import { Eyebrow } from '../components/shared.jsx'
 import entries from '../content/log-index.json'
 import results from '../data/results.json'
 import sample from '../data/sample.json'
-import { LOG, PROPOSAL, PROPOSAL_DOCX, REPO_URL, logEntry } from '../site/links.js'
+import { LIT_REVIEW, LOG, PROPOSAL, PROPOSAL_DOCX, REPO_URL, logEntry } from '../site/links.js'
 import { mean, pct } from '../site/format.js'
 
 const confirm = results.find((r) => r.role === 'confirmation')
@@ -22,8 +23,8 @@ const TWIN_TONES = { [cap(sample.agents.A)]: 'a', [cap(sample.agents.B)]: 'b' }
 
 const PHASES = [
   { n: 1, title: 'Pilot', body: 'A tiny world, state-vector frames. Gate: beat the co-occurrence control, and measure variance.', status: 'done' },
-  { n: 2, title: 'Literature and novelty check', body: 'Including the decipherment literature the method now draws on.', status: 'next' },
-  { n: 3, title: 'World, streams and pre-registration', body: 'Switchable symmetries, grid-video frames, every control. Predictions published before the main runs.', status: 'later' },
+  { n: 2, title: 'Literature and novelty check', body: 'Gate: the design is confirmed as novel, or adjusted. It was adjusted: see below.', status: 'done' },
+  { n: 3, title: 'World, streams and pre-registration', body: 'Switchable symmetries and near-symmetries, grid-video frames, every control. Predictions published before the main runs.', status: 'next' },
   { n: 4, title: 'Train and align', body: 'The method frozen on the cipher control, then the main conditions, at least 10 independent pairs each.', status: 'later' },
   { n: 5, title: 'Sweeps and write-up', body: 'Break symmetries one at a time; vary how far the two worlds differ. Publish everything, nulls included.', status: 'later' },
 ]
@@ -34,7 +35,7 @@ const HYPOTHESES = [
     claim: 'The language model holds the world’s state',
     status: 'Promising',
     tone: 'warn',
-    note: 'On the first pilot pair, small probes read the agents’ places and hunger, the stone and the apple from its sentence summaries about 97% of the time. The formal test, against grammar-only and scrambled-world controls, comes in phase 4.',
+    note: 'On the first pilot pair, small probes read the agents’ places and hunger, the stone and the apple from its sentence summaries about 97% of the time. The formal test comes in phase 4, against grammar-only and scrambled-world controls. It adds a check that probes can’t fool: states that differ should lead the model to different continuations.',
   },
   {
     id: 'H2',
@@ -45,17 +46,17 @@ const HYPOTHESES = [
   },
   {
     id: 'H3',
-    claim: 'The remaining errors follow the world’s symmetries',
+    claim: 'The remaining errors follow the world’s symmetries, and near-symmetries are confused in proportion to how nearly they hold',
     status: 'Not yet tested',
     tone: 'muted',
-    note: 'The twin swap shows up as predicted, but the pilot’s search fixed the twins’ order, so it can’t count as evidence yet. The main phase searches every order and breaks symmetries one at a time.',
+    note: 'For two models of the same data, this limit was proven in 2026. Ours share a world but no data, so the proof doesn’t cover them, and nobody has predicted how often near-symmetries are confused. The twin swap shows up as predicted, but the pilot’s search fixed the twins’ order, so it can’t count as evidence yet.',
   },
   {
     id: 'H4',
     claim: 'Alignment degrades gracefully as the two worlds differ',
     status: 'Not yet tested',
     tone: 'muted',
-    note: 'Phase 5 sweeps how much the described and observed worlds overlap, and how rich they are.',
+    note: 'Phase 5 sweeps how much the described and observed worlds overlap, including worlds where each describes things the other lacks, a case the theory of unsupervised translation leaves open.',
   },
 ]
 
@@ -99,12 +100,12 @@ function ProjectHero() {
         <div className="section-head section-head--wide">
           <div className="tag-row">
             <Eyebrow tone="amber">Project 01</Eyebrow>
-            <span className="pill pill--live"><span className="pulse-dot pulse-dot--small" />Pilot complete · Nov 2026</span>
+            <span className="pill pill--live"><span className="pulse-dot pulse-dot--small" />Pilot and literature check complete · Nov 2026</span>
           </div>
           <h1 className="hero__title hero__title--page">Predicting the limits of unsupervised grounding</h1>
           <p className="hero__lede">
-            Can an AI that has only ever read words be connected to the world those words describe?
-            And can we predict, before we look, exactly where that connection must fail?
+            When an AI decodes a language with no dictionary, some mistakes are unavoidable. We
+            predict exactly which ones before the experiment runs, and then check.
           </p>
           <div className="button-row">
             <a className="btn" href="#decoded">See real results</a>
@@ -216,7 +217,7 @@ function HowItWorks() {
           <Fig
             n={3}
             title="Two models, each trained only on its own stream"
-            caption="Both are small transformers trained from scratch, with no pretrained weights and no shared data. The reader predicts the next word, and also compresses each sentence into a 64-number summary that must predict what comes next. The watcher predicts the whole next frame."
+            caption="Both are small transformers trained from scratch, with no pretrained weights and no shared data. The reader predicts the next word, and also compresses each sentence into a 64-number summary that must predict what comes next. The watcher predicts the whole next frame. The next section opens both up."
           >
             <div className="models">
               <div className="model model--lang">
@@ -369,8 +370,8 @@ function Hypotheses() {
           <Eyebrow tone="ice">Where each claim stands</Eyebrow>
           <h2 className="h2">Four hypotheses. One tested so far.</h2>
           <p className="lede lede--small">
-            H3 is the main contribution: that the errors follow the world’s symmetries exactly. H2 has to hold before
-            H3 can be tested.
+            H3 is the main contribution: that the errors follow the world’s symmetries exactly, and near-symmetries in
+            proportion to how nearly they hold. H2 has to hold before H3 can be tested.
           </p>
         </div>
         <div className="hyp-grid">
@@ -396,7 +397,7 @@ function Next() {
       <div className="container stack-48">
         <div className="section-head section-head--wide">
           <Eyebrow tone="ice">What’s next</Eyebrow>
-          <h2 className="h2 h2--lg">Five gated phases. The first is done.</h2>
+          <h2 className="h2 h2--lg">Five gated phases. The first two are done.</h2>
           <p className="lede">No phase starts until the one before it passes its gate.</p>
         </div>
         <ol className="phases">
@@ -415,6 +416,19 @@ function Next() {
           ))}
         </ol>
         <div className="callout">
+          <Eyebrow tone="ice">What the literature check found</Eyebrow>
+          <p>
+            Two 2026 papers establish the principle behind H3 in simpler settings.{' '}
+            <a href="https://arxiv.org/abs/2611.11460">Syrota et al.</a> prove that aligning two models of the same
+            data, with no pairs, works exactly when the data breaks every symmetry.{' '}
+            <a href="https://arxiv.org/abs/2608.27651">Xu &amp; Kanan</a> show the same limit in experiments. Neither
+            covers two modalities that share a world but no data, symmetries that come from how a world changes, or
+            near-symmetries. So the design is still new, but H3 now tests whether a proven limit carries over, and adds
+            a graded prediction the proof doesn’t make. The <a href={LIT_REVIEW}>literature review</a> lists all 33
+            sources, and the <a href={`${PROPOSAL}#how-this-proposal-came-to-be`}>proposal</a> lists every change.
+          </p>
+        </div>
+        <div className="callout">
           <Eyebrow tone="amber">Open issues carried forward</Eyebrow>
           <ul className="plain-list">
             <li>The search must try every order of the twins, so that a 50% swap rate across pairs is evidence rather than a side effect of numbering.</li>
@@ -429,9 +443,10 @@ function Next() {
 
 function Documents() {
   const DOCS = [
-    { href: PROPOSAL, title: 'The proposal', body: 'The design of record, revised after the pilot.', tag: 'Read online' },
+    { href: PROPOSAL, title: 'The proposal', body: 'The design of record. The second version, rewritten after the pilot and the literature check.', tag: 'Read online' },
     { href: PROPOSAL_DOCX, title: 'The proposal, as a Word document', body: 'Same content, for printing or sharing.', tag: '.docx' },
     { href: LOG, title: 'The research log', body: 'Every experiment in order, with why, how, result and meaning.', tag: `${entries.length} entries` },
+    { href: LIT_REVIEW, title: 'The literature review', body: 'Every source checked for novelty, how much of each was read, and what it changed.', tag: '33 sources' },
     { href: REPO_URL, title: 'The code', body: 'Simulator, renderers, models, alignment and scoring. Every run is reproducible from its record.', tag: 'GitHub' },
   ]
   return (
@@ -462,6 +477,7 @@ export default function Project() {
       <Question />
       <TwinsDemo />
       <HowItWorks />
+      <ModelDiagrams />
       <Decoded />
       <Results />
       <Lessons />
