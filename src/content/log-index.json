@@ -273,5 +273,60 @@
   "n": 55,
   "title": "Correction: one accuracy measure for every result",
   "session": "Session 5: reporting"
+ },
+ {
+  "n": 56,
+  "title": "A grid-video renderer",
+  "session": "Session 6: grid video (phase 3, steps 1 and 2)"
+ },
+ {
+  "n": 57,
+  "title": "A frame model for grid video, and a faster exact sampler",
+  "session": "Session 6: grid video (phase 3, steps 1 and 2)"
+ },
+ {
+  "n": 58,
+  "title": "Finding the frames' structure from the frames alone",
+  "session": "Session 6: grid video (phase 3, steps 1 and 2)"
+ },
+ {
+  "n": 59,
+  "title": "Sorting words into kinds from the language alone",
+  "session": "Session 6: grid video (phase 3, steps 1 and 2)"
+ },
+ {
+  "n": 60,
+  "title": "Grid decipherment runs end to end, but its ceiling is low",
+  "session": "Session 6: grid video (phase 3, steps 1 and 2)"
+ },
+ {
+  "n": 61,
+  "title": "Why hunger is weak: where a thing is and how it looks were one fact",
+  "session": "Session 6: grid video (phase 3, steps 1 and 2)"
+ },
+ {
+  "n": 62,
+  "title": "The real cause: the frame model's own rollouts drift into impossible frames",
+  "session": "Session 6: grid video (phase 3, steps 1 and 2)"
+ },
+ {
+  "n": 63,
+  "title": "Where hunger is lost: the evidence is there, the fit doesn't learn to use it",
+  "session": "Session 6: grid video (phase 3, steps 1 and 2)"
+ },
+ {
+  "n": 64,
+  "title": "The full search on grid pair 0 (no truth used)",
+  "session": "Session 6: grid video (phase 3, steps 1 and 2)"
+ },
+ {
+  "n": 65,
+  "title": "The objective diagnostic: does the full fit prefer the true matching?",
+  "session": "Session 6: grid video (phase 3, steps 1 and 2)"
+ },
+ {
+  "n": 66,
+  "title": "Does marking who acted let the fit learn hunger?",
+  "session": "Session 6: grid video (phase 3, steps 1 and 2)"
  }
 ]

@@ -75,7 +75,7 @@ function Featured() {
         <div className="section-head section-head--wide">
           <div className="tag-row">
             <Eyebrow tone="amber">Project 01</Eyebrow>
-            <span className="pill pill--live"><span className="pulse-dot pulse-dot--small" />Pilot and literature check complete</span>
+            <span className="pill pill--live"><span className="pulse-dot pulse-dot--small" />Phase 3 under way</span>
           </div>
           <h2 className="h2 h2--lg">
             When an AI decodes a language with no dictionary, which mistakes are unavoidable?
@@ -204,7 +204,7 @@ function Roadmap() {
           <a href={PROJECT} className="card card--dark card--active card--link">
             <Eyebrow tone="amber">01 · Active</Eyebrow>
             <div className="roadmap__title">Predicting the limits of unsupervised grounding</div>
-            <span className="roadmap__link">Pilot and literature check complete. Next: the full world and pre-registration →</span>
+            <span className="roadmap__link">Pilot and literature check complete. Now: grid video →</span>
           </a>
           <a href={IDEA_CIRCUITS} className="card card--dark card--dashed card--link">
             <Eyebrow>Idea · not started</Eyebrow>

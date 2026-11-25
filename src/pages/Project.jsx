@@ -3,6 +3,7 @@ import { FrameCells } from '../components/FrameCells.jsx'
 import { ResultsChart, VarianceChart } from '../components/Charts.jsx'
 import TwinsDemo from '../components/TwinsDemo.jsx'
 import ModelDiagrams from '../components/ModelDiagrams.jsx'
+import GridClip from '../components/GridClip.jsx'
 import { WorldMap } from '../components/WorldMap.jsx'
 import { pathOrder } from '../site/world.js'
 import { Eyebrow } from '../components/shared.jsx'
@@ -24,7 +25,7 @@ const TWIN_TONES = { [cap(sample.agents.A)]: 'a', [cap(sample.agents.B)]: 'b' }
 const PHASES = [
   { n: 1, title: 'Pilot', body: 'A tiny world, state-vector frames. Gate: beat the co-occurrence control, and measure variance.', status: 'done' },
   { n: 2, title: 'Literature and novelty check', body: 'Gate: the design is confirmed as novel, or adjusted. It was adjusted: see below.', status: 'done' },
-  { n: 3, title: 'World, streams and pre-registration', body: 'Switchable symmetries and near-symmetries, grid-video frames, every control. Predictions published before the main runs.', status: 'next' },
+  { n: 3, title: 'World, streams and pre-registration', body: 'First, grid-video frames run through the whole method (see below). Then switchable symmetries and near-symmetries, every control, and the predictions published before the main runs.', status: 'now' },
   { n: 4, title: 'Train and align', body: 'The method frozen on the cipher control, then the main conditions, at least 10 independent pairs each.', status: 'later' },
   { n: 5, title: 'Sweeps and write-up', body: 'Break symmetries one at a time; vary how far the two worlds differ. Publish everything, nulls included.', status: 'later' },
 ]
@@ -42,14 +43,14 @@ const HYPOTHESES = [
     claim: 'The two models can be aligned with no paired data',
     status: 'Pilot gate met',
     tone: 'good',
-    note: `${pct(avg('method'))} of held-out sentences right on average, against ${pct(avg('baseline'))} for the co-occurrence control. The scrambled-world control isn’t built yet.`,
+    note: `${pct(avg('method'))} of held-out sentences right on average, against ${pct(avg('baseline'))} for the co-occurrence control. The scrambled-world control isn’t built yet. On grid video, not yet: a wrong matching currently scores higher than the truth.`,
   },
   {
     id: 'H3',
     claim: 'The remaining errors follow the world’s symmetries, and near-symmetries are confused in proportion to how nearly they hold',
     status: 'Not yet tested',
     tone: 'muted',
-    note: 'For two models of the same data, this limit was proven in 2026. Ours share a world but no data, so the proof doesn’t cover them, and nobody has predicted how often near-symmetries are confused. The twin swap shows up as predicted, but the pilot’s search fixed the twins’ order, so it can’t count as evidence yet.',
+    note: 'For two models of the same data, this limit was proven in 2026. Ours share a world but no data, so the proof doesn’t cover them, and nobody has predicted how often near-symmetries are confused. With the twins’ order now left free, the two twin matchings tie on grid video, as predicted: a first measurement, not yet evidence.',
   },
   {
     id: 'H4',
@@ -100,7 +101,7 @@ function ProjectHero() {
         <div className="section-head section-head--wide">
           <div className="tag-row">
             <Eyebrow tone="amber">Project 01</Eyebrow>
-            <span className="pill pill--live"><span className="pulse-dot pulse-dot--small" />Pilot and literature check complete · Nov 2026</span>
+            <span className="pill pill--live"><span className="pulse-dot pulse-dot--small" />Phase 3 under way · Nov 2026</span>
           </div>
           <h1 className="hero__title hero__title--page">Predicting the limits of unsupervised grounding</h1>
           <p className="hero__lede">
@@ -119,6 +120,7 @@ function ProjectHero() {
               <span className="mono">{p.n}</span> {p.title}
               {p.status === 'done' && <span className="sr-only"> (complete)</span>}
               {p.status === 'next' && <span className="sr-only"> (next)</span>}
+              {p.status === 'now' && <span className="sr-only"> (under way)</span>}
             </li>
           ))}
         </ol>
@@ -391,6 +393,71 @@ function Hypotheses() {
   )
 }
 
+function GridVideo() {
+  return (
+    <section id="grid-video" className="section">
+      <div className="container stack-48">
+        <div className="section-head section-head--wide">
+          <Eyebrow tone="amber">Phase 3 · under way</Eyebrow>
+          <h2 className="h2 h2--lg">Grid video: the first attempt.</h2>
+          <p className="lede">
+            The proposal’s main condition shows the watcher pictures, not lists of facts. We built grid video and ran
+            the whole method on it. Some of it works. The main part doesn’t yet.
+          </p>
+        </div>
+        <div className="grid-video">
+          <div className="stack-24">
+            <GridClip />
+            <p className="fig__caption">
+              What the watcher sees: six real consecutive frames from a held-out episode of grid pair 0, 240 yes/no
+              values each. Each place is a patch of cells, and where in its patch a thing sits is random. A carried
+              object shares its carrier’s cell. Names, colours, place labels and captions are added for you; the
+              frame model sees only cells. This pair’s language names the twins Mudud and Dezod.
+            </p>
+          </div>
+          <div className="takeaways">
+            <div className="takeaway-item">
+              <span className="status status--good">Works</span>
+              <p>
+                <strong className="ink">Nothing hand-written.</strong> The frames’ structure (places, things,
+                appearances, carrying) and the kinds of words are now found from each stream alone, and every order of
+                the twins is searched. Checked against the hidden key afterwards, the structure was exactly right.
+              </p>
+            </div>
+            <div className="takeaway-item">
+              <span className="status status--good">Works</span>
+              <p>
+                <strong className="ink">The twins tie.</strong> The true matching and the one with the agents swapped
+                score 17.00 and 17.02 on the method’s own measure, within its noise, as the symmetry predicts.
+              </p>
+            </div>
+            <div className="takeaway-item">
+              <span className="status status--warn">Not yet</span>
+              <p>
+                <strong className="ink">The right matching doesn’t win.</strong> A matching with all three object
+                words wrong scores 17.10, higher than the truth. Even under the true matching only about 15% of frames
+                decode exactly right, against about 79% with the pilot’s lists of facts.
+              </p>
+            </div>
+            <div className="takeaway-item">
+              <span className="status status--warn">Why</span>
+              <p>
+                <strong className="ink">Hunger isn’t learned.</strong> The language model’s summaries do hold it: with
+                a summary model fitted on the true frames, the method decodes 64% of frames exactly right. Fitted
+                from its own guesses, it never learns to read hunger. That’s what we’re fixing next, keeping the grid
+                video itself unmarked.
+              </p>
+            </div>
+            <a className="small" href={logEntry(56)}>
+              Every step, in the research log (entries 56 onwards) →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Next() {
   return (
     <section id="next" className="section">
@@ -409,6 +476,7 @@ function Next() {
                   {p.title}
                   {p.status === 'done' && <span className="status status--good">Complete</span>}
                   {p.status === 'next' && <span className="status status--warn">Next</span>}
+                  {p.status === 'now' && <span className="status status--warn">Under way</span>}
                 </div>
                 <p className="phase__body">{p.body}</p>
               </div>
@@ -431,9 +499,10 @@ function Next() {
         <div className="callout">
           <Eyebrow tone="amber">Open issues carried forward</Eyebrow>
           <ul className="plain-list">
-            <li>The search must try every order of the twins, so that a 50% swap rate across pairs is evidence rather than a side effect of numbering.</li>
-            <li>The step that sorts each stream’s words and cells into kinds is written for this world’s format. It needs replacing with a general one, or reporting as a limitation.</li>
-            <li>A richer world, with grid-video frames, to give the trained frame model room to show what it adds.</li>
+            <li>On grid video, the method has to learn to read hunger from its own guesses, without marking who acted in the pictures (entries 63-66).</li>
+            <li>State vectors still sort their facts into kinds with a hand-written step. A general one, working from the statistics alone, is being built.</li>
+            <li>A richer world, to give the trained frame model room to show what it adds.</li>
+            <li>Done: the search now tries every order of the twins, and for grid video the sorting into kinds is general (entries 58-59 and 65).</li>
           </ul>
         </div>
       </div>
@@ -482,6 +551,7 @@ export default function Project() {
       <Results />
       <Lessons />
       <Hypotheses />
+      <GridVideo />
       <Next />
       <Documents />
     </>
