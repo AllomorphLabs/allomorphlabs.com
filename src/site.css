@@ -768,3 +768,34 @@
   .block-sizes { font-size: 13px; }
   .block-sizes th, .block-sizes td { padding: 8px 10px; white-space: normal; }
 }
+
+/* ---------- Grid video (phase 3) ---------- */
+.phase-strip__item--now { color: var(--ink); border-top-color: var(--warn); }
+.grid-video { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: start; }
+.grid-clip { margin: 0; display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: var(--radius); background: var(--panel); border: 1px solid var(--line); }
+.grid-clip__places { display: grid; gap: 3px; font-family: var(--font-mono); font-size: 11px; color: var(--muted); text-align: center; }
+.grid-clip__steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.grid-clip__step { display: flex; flex-direction: column; gap: 5px; }
+.grid-clip__caption { font-size: 13px; color: var(--body); }
+.grid-frame { display: grid; gap: 3px; }
+.grid-cell { aspect-ratio: 1; border-radius: 4px; background: #1f2944; border: 1px solid #2e3a5e; display: flex; align-items: center; justify-content: center; gap: 1px; min-width: 0; overflow: hidden; }
+.grid-cell--gap { background: transparent; border-color: transparent; }
+.grid-thing { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px; font-weight: 700; line-height: 1; border-radius: 3px; min-width: 0; padding: 1px 2px; }
+.grid-thing--agent { color: var(--bg); }
+.grid-thing--a0 { background: var(--chart-1); }
+.grid-thing--a1 { background: var(--chart-2); }
+.grid-thing--hungry { box-shadow: 0 0 0 2px var(--bad); }
+.grid-thing--object { color: var(--ink); background: #3a4670; }
+.grid-thing--broken { text-decoration: line-through; }
+.grid-clip__legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--muted); }
+.grid-clip__legend .grid-thing { margin-right: 2px; }
+@media (max-width: 1040px) {
+  .grid-video { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+@media (max-width: 760px) {
+  .grid-clip { padding: 14px 10px; }
+  .grid-frame, .grid-clip__places { gap: 2px; }
+  .grid-thing { font-size: 9px; padding: 0 1px; }
+  .grid-clip__places { font-size: 9px; }
+}
+.grid-video .takeaway-item .status { align-self: flex-start; }
