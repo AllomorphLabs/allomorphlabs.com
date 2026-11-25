@@ -29,7 +29,7 @@ export default function Log() {
       intro={
         <p>
           Each entry says why the experiment was run, how, what happened and what it means. Entries are never
-          rewritten after the fact, including the ones that failed. Only “Where we are now” is kept up to date. This
+          rewritten after the fact, including the ones that failed; titles are sometimes reworded so each reads clearly on its own. Only “Where we are now” is kept up to date. This
           log is the record of the work; the <a href={PROPOSAL}>proposal</a> is the design it serves.
         </p>
       }

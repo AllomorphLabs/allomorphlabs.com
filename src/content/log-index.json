@@ -1,272 +1,272 @@
 [
  {
   "n": 1,
-  "title": "First end-to-end alignment (vec2vec)",
+  "title": "First attempt: matching the two models' representations (vec2vec) finds nothing",
   "session": "Session 1: first pilot run"
  },
  {
   "n": 2,
-  "title": "Do the models hold the world state?",
+  "title": "The language model doesn't hold the world's state in a readable form",
   "session": "Session 1: first pilot run"
  },
  {
   "n": 3,
-  "title": "Does the language model understand the world at all?",
+  "title": "The language model tracks the world but keeps no full snapshot of it",
   "session": "Session 1: first pilot run"
  },
  {
   "n": 4,
-  "title": "Train the language model longer and faster",
+  "title": "Longer training doesn't make the language model store a full snapshot",
   "session": "Session 1: first pilot run"
  },
  {
   "n": 5,
-  "title": "A bigger language model",
+  "title": "A bigger language model holds more of the state, but not all of it",
   "session": "Session 1: first pilot run"
  },
  {
   "n": 6,
-  "title": "vec2vec again, on the bigger model",
+  "title": "Representation matching fails even on the bigger language model",
   "session": "Session 1: first pilot run"
  },
  {
   "n": 7,
-  "title": "The easiest possible test of the aligner",
+  "title": "Representation matching fails even with perfect representations",
   "session": "Session 1: first pilot run"
  },
  {
   "n": 8,
-  "title": "Why distribution matching fails",
+  "title": "Why matching distributions can't work: snapshots don't show which places are adjacent",
   "session": "Session 1: first pilot run"
  },
  {
   "n": 9,
-  "title": "Adding time to distribution matching",
+  "title": "Adding time to distribution matching helps, but not enough",
   "session": "Session 1: first pilot run"
  },
  {
   "n": 10,
-  "title": "Judge mappings by dynamics",
+  "title": "Judging a mapping by the world's dynamics identifies it, up to symmetry",
   "session": "Session 1: first pilot run"
  },
  {
   "n": 11,
-  "title": "The dynamics judge, language to frames",
+  "title": "From language to frames, the dynamics judge finds no mapping",
   "session": "Session 1: first pilot run"
  },
  {
   "n": 12,
-  "title": "Is the judge right for language too?",
+  "title": "The dynamics judge scores language correctly; the search is what fails",
   "session": "Session 2"
  },
  {
   "n": 13,
-  "title": "The cipher control",
+  "title": "A cipher control that word frequency alone solves",
   "session": "Session 2"
  },
  {
   "n": 14,
-  "title": "Why the neural mapping failed",
+  "title": "A flexible neural mapping cheats the judge by inventing plausible frames",
   "session": "Session 2"
  },
  {
   "n": 15,
-  "title": "Make the language model hold a full snapshot",
+  "title": "A language model trained to hold a full snapshot of the world",
   "session": "Session 2"
  },
  {
   "n": 16,
-  "title": "The judge again, with the new language model",
+  "title": "With a better language model, flexible mappings still cheat and constrained ones can't be found",
   "session": "Session 2"
  },
  {
   "n": 17,
-  "title": "Match the slowest-changing patterns on each side",
+  "title": "Matching the slowest-changing patterns doesn't identify the mapping",
   "session": "Session 2"
  },
  {
   "n": 18,
-  "title": "A compressed summary in the frame's own format, then a swap search",
+  "title": "A second way to cheat the judge: facts that never change look predictable",
   "session": "Session 2"
  },
  {
   "n": 19,
-  "title": "What raw counts reveal",
+  "title": "Raw word counts alone get much of the matching right in this world",
   "session": "Session 2"
  },
  {
   "n": 20,
-  "title": "The predictive-state language model, from scratch",
+  "title": "The predictive-state language model reproduces from scratch",
   "session": "Session 2"
  },
  {
   "n": 21,
-  "title": "Decipherment, first version",
+  "title": "Decipherment, first version: the truth doesn't score best",
   "session": "Session 3: decipherment"
  },
  {
   "n": 22,
-  "title": "Decipherment with per-position word tables",
+  "title": "With per-position word tables, random starts still beat the truth",
   "session": "Session 3: decipherment"
  },
  {
   "n": 23,
-  "title": "Start EM from the truth (a basin test)",
+  "title": "Started from the truth, decipherment prefers it; from random starts it gets stuck",
   "session": "Session 3: decipherment"
  },
  {
   "n": 24,
-  "title": "A small starting hint: who is speaking",
+  "title": "A starting hint about who is speaking isn't enough",
   "session": "Session 3: decipherment"
  },
  {
   "n": 25,
-  "title": "Find each stream's structure on its own",
+  "title": "Each stream's structure can be found from that stream alone",
   "session": "Session 3: decipherment"
  },
  {
   "n": 26,
-  "title": "Shared tables: build the matching into the model",
+  "title": "Word tables shared across roles make the fit prefer the right matching",
   "session": "Session 3: decipherment"
  },
  {
   "n": 27,
-  "title": "Search all matchings without the truth",
+  "title": "Searching every matching, the places' mirror image wins: the model can't see where eating happens",
   "session": "Session 3: decipherment"
  },
  {
   "n": 28,
-  "title": "Use the language model's summaries instead of words",
+  "title": "Reading the language model's summaries instead of words, hunger is read poorly",
   "session": "Session 3: decipherment"
  },
  {
   "n": 29,
-  "title": "A neural reader inside the decipherment",
+  "title": "A neural reader trained on its own guesses learns its own mistakes",
   "session": "Session 3: decipherment"
  },
  {
   "n": 30,
-  "title": "One more role: \"where the actor is\"",
+  "title": "Adding the actor's place as a word role breaks the places' mirror",
   "session": "Session 3: decipherment"
  },
  {
   "n": 31,
-  "title": "A frame model that predicts whole frames",
+  "title": "A frame model that predicts whole frames learns the world's structure unaided",
   "session": "Session 3 continued: two trained models"
  },
  {
   "n": 32,
-  "title": "Decipherment with a particle filter",
+  "title": "Decipherment with a particle filter works, but learns slowly",
   "session": "Session 3 continued: two trained models"
  },
  {
   "n": 33,
-  "title": "Add the language model's summaries to the particle filter",
+  "title": "With both trained models, agents and hunger are decoded; objects aren't",
   "session": "Session 3 continued: two trained models"
  },
  {
   "n": 34,
-  "title": "Fix the objects: handle the episode's start exactly",
+  "title": "Handling each episode's start exactly fixes the objects",
   "session": "Session 3 continued: two trained models"
  },
  {
   "n": 35,
-  "title": "Stop the slide; compare true and mirror",
+  "title": "Stopping accuracy sliding; the fit prefers the truth over the mirror",
   "session": "Session 3 continued: two trained models"
  },
  {
   "n": 36,
-  "title": "Speed",
+  "title": "Faster code alone can't make a full search affordable",
   "session": "Session 3 continued: two trained models"
  },
  {
   "n": 37,
-  "title": "A faster search: one fit, then relabel words to score every matching",
+  "title": "Relabelling one fit can't score other matchings; each must be fitted separately",
   "session": "Session 3 continued: two trained models"
  },
  {
   "n": 38,
-  "title": "Relabel with words only",
+  "title": "Words alone can't rank matchings from tables fitted under a wrong one",
   "session": "Session 3 continued: two trained models"
  },
  {
   "n": 39,
-  "title": "Two-stage search",
+  "title": "A two-stage search decodes 75% given the right matching, but selects a wrong one",
   "session": "Session 3 continued: two trained models"
  },
  {
   "n": 40,
-  "title": "Rescore the finalists with corrected scoring",
+  "title": "With corrected scoring, the pipeline selects the true matching with no truth used",
   "session": "Session 3 continued: two trained models"
  },
  {
   "n": 41,
-  "title": "Move the method into the package and freeze it",
+  "title": "The method moved into the package and frozen",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 42,
-  "title": "Pair 1, first run: the objects fail. Why, and a fix",
+  "title": "On a second pair, objects fail: its language model stores them in a tangled form",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 43,
-  "title": "The pairwise fix in the real loop, and words alone",
+  "title": "A richer summary model confirms the filter's mistakes instead of correcting them",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 44,
-  "title": "A word model where each sentence states one fact",
+  "title": "A word model in which each sentence states one fact",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 45,
-  "title": "The new word model: pair 0, and words alone",
+  "title": "The one-fact word model holds up on the first pair; without the language model, alignment fails",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 46,
-  "title": "Rules fixed in advance for the next runs",
+  "title": "Rules fixed in advance for the confirmation runs",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 47,
-  "title": "Pairwise summary inputs with the new word model, and the decision",
+  "title": "Pairwise summary inputs fit their own mistakes, and are dropped",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 48,
-  "title": "Pair 2's two models",
+  "title": "The third pair's two models are trained",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 49,
-  "title": "The frozen method end to end on pair 1",
+  "title": "The frozen method works end to end on the second pair",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 50,
-  "title": "The frozen method end to end on pair 0, and the gate",
+  "title": "The frozen method works end to end on the first pair, so the confirmation runs",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 51,
-  "title": "Pair 2: the clean confirmation",
+  "title": "Clean confirmation: 70% exactly right on a fresh pair, with no truth used",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 52,
-  "title": "Purity: what each trained model contributes, and the agent-order tie",
+  "title": "What each trained model contributes, and the agent-order tie",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 53,
-  "title": "The controls as full pipelines on all three pairs",
+  "title": "The controls as full pipelines: the pilot's alignment gate is met",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
   "n": 54,
-  "title": "Variance: restarts within a pair against differences between pairs",
+  "title": "Results vary far more between pairs than between restarts",
   "session": "Session 4: packaging and the fresh pair"
  },
  {
@@ -276,7 +276,7 @@
  },
  {
   "n": 56,
-  "title": "A grid-video renderer",
+  "title": "A renderer for grid video",
   "session": "Session 6: grid video (phase 3, steps 1 and 2)"
  },
  {
@@ -296,37 +296,107 @@
  },
  {
   "n": 60,
-  "title": "Grid decipherment runs end to end, but its ceiling is low",
+  "title": "Decipherment on grid video runs end to end, with a low ceiling",
   "session": "Session 6: grid video (phase 3, steps 1 and 2)"
  },
  {
   "n": 61,
-  "title": "Why hunger is weak: where a thing is and how it looks were one fact",
+  "title": "On grid video, where a thing is and how it looks were tied into one fact",
   "session": "Session 6: grid video (phase 3, steps 1 and 2)"
  },
  {
   "n": 62,
-  "title": "The real cause: the frame model's own rollouts drift into impossible frames",
+  "title": "The grid frame model's own rollouts drift into impossible frames",
   "session": "Session 6: grid video (phase 3, steps 1 and 2)"
  },
  {
   "n": 63,
-  "title": "Where hunger is lost: the evidence is there, the fit doesn't learn to use it",
+  "title": "On grid video the summaries hold hunger, but the fit never learns to read it",
   "session": "Session 6: grid video (phase 3, steps 1 and 2)"
  },
  {
   "n": 64,
-  "title": "The full search on grid pair 0 (no truth used)",
+  "title": "The first full search on grid video, with no truth used",
   "session": "Session 6: grid video (phase 3, steps 1 and 2)"
  },
  {
   "n": 65,
-  "title": "The objective diagnostic: does the full fit prefer the true matching?",
+  "title": "On grid video, a wrong matching fits better than the truth",
   "session": "Session 6: grid video (phase 3, steps 1 and 2)"
  },
  {
   "n": 66,
-  "title": "Does marking who acted let the fit learn hunger?",
+  "title": "Marking which agent acted doesn't help the fit learn hunger",
   "session": "Session 6: grid video (phase 3, steps 1 and 2)"
+ },
+ {
+  "n": 67,
+  "title": "A statistics-only parser for state vectors",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 68,
+  "title": "Stronger summary evidence doesn't help the fit learn hunger",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 69,
+  "title": "Why the fit can't learn hunger (\"no effect\" is a trap), and a way out",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 70,
+  "title": "Learning the summary model from the summaries' own distribution reads one agent's hunger",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 71,
+  "title": "With nothing hand-written, state vectors give the right words but the places' mirror image",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 72,
+  "title": "Restarting an agent's two appearances together reads both agents' hunger",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 73,
+  "title": "Alternating split moves with particle iterations still reads only one agent's hunger",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 74,
+  "title": "With split moves inside the fit, exact grid frames rise from 20% to 47%",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 75,
+  "title": "Split moves inside the fit let the selection prefer the right places over their mirror",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 76,
+  "title": "Trying split moves in several orders makes learning hunger reliable",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 77,
+  "title": "The summaries' distribution alone can't break the places' near-symmetry",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 78,
+  "title": "GPU memory fragmentation, not the method, was slowing the searches",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 79,
+  "title": "A faster particle filter and split moves, with the same results",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 80,
+  "title": "The world's dynamics alone can't break the places' near-symmetry",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
  }
 ]

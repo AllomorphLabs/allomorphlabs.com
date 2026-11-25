@@ -78,9 +78,9 @@ export default function About() {
           </div>
           <div className="prose prose--lead">
             <p>
-              Allomorph was founded by Shane Armstrong, a software engineer and technical leader with fifteen years of
-              building systems people rely on, from start-ups to platforms that move billions of pounds. Allomorph is
-              the place for questions that are usually only argued about, to test them instead.
+              Allomorph is run by Shane Armstrong, a software engineer of fifteen years who came to machine learning
+              from building software, not from academia. That’s part of why everything is done in the open: the
+              predictions, the experiments and the failures are all published, so anyone can check the work.
             </p>
           </div>
         </div>
