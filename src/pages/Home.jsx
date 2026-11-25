@@ -75,15 +75,17 @@ function Featured() {
         <div className="section-head section-head--wide">
           <div className="tag-row">
             <Eyebrow tone="amber">Project 01</Eyebrow>
-            <span className="pill pill--live"><span className="pulse-dot pulse-dot--small" />Pilot complete</span>
+            <span className="pill pill--live"><span className="pulse-dot pulse-dot--small" />Pilot and literature check complete</span>
           </div>
           <h2 className="h2 h2--lg">
-            Can an AI that has only ever read words be connected to the world they describe?
+            When an AI decodes a language with no dictionary, which mistakes are unavoidable?
           </h2>
           <p className="lede">
             One AI reads sentences in an invented language. Another watches silent recordings of
-            the same small world. They never share data. We connect them with no dictionary, and
-            predict exactly which mistakes must remain.
+            the same small world. They never share data. We decode the first using the second, with
+            no dictionary, and predict in advance exactly which mix-ups must remain: a coin toss
+            where two things are interchangeable, occasional where they’re nearly alike, and none
+            anywhere else.
           </p>
         </div>
 
@@ -202,7 +204,7 @@ function Roadmap() {
           <a href={PROJECT} className="card card--dark card--active card--link">
             <Eyebrow tone="amber">01 · Active</Eyebrow>
             <div className="roadmap__title">Predicting the limits of unsupervised grounding</div>
-            <span className="roadmap__link">Pilot complete. Next: literature and novelty check →</span>
+            <span className="roadmap__link">Pilot and literature check complete. Next: the full world and pre-registration →</span>
           </a>
           <a href={IDEA_CIRCUITS} className="card card--dark card--dashed card--link">
             <Eyebrow>Idea · not started</Eyebrow>

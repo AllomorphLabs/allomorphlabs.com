@@ -1,4 +1,4 @@
-// The timeline shown in the Zib and Mov demo.
+// The timeline shown in the Tofem and Bikop demo.
 // Invented-language vocabulary (each word checked to be far from English):
 //   teshi = go, vudo = river, gorvi = eat, pukat = berry bush,
 //   tsifa = home, sorrun = and
@@ -7,10 +7,10 @@ const both = (time, rest, english, spot) => ({
   time,
   f1: spot,
   f2: spot,
-  lines: [{ who: 'zib sorrun mov', rest, english: `Zib and Mov ${english}` }],
+  lines: [{ who: 'tofem sorrun bikop', rest, english: `Tofem and Bikop ${english}` }],
 })
 
-/** Returns the day's steps. With `habit`, Zib makes an extra evening river trip. */
+/** Returns the day's steps. With `habit`, Tofem makes an extra evening river trip. */
 export function buildSteps(habit) {
   const steps = [
     both('08:00', 'teshi vudo', 'go to the river', 'river'),
@@ -23,15 +23,15 @@ export function buildSteps(habit) {
       f1: 'river',
       f2: 'home',
       lines: [
-        { who: 'mov', rest: 'teshi tsifa', english: 'Mov goes home' },
-        { who: 'zib', rest: 'teshi vudo', english: 'Zib goes back to the river' },
+        { who: 'bikop', rest: 'teshi tsifa', english: 'Bikop goes home' },
+        { who: 'tofem', rest: 'teshi vudo', english: 'Tofem goes back to the river' },
       ],
     })
     steps.push({
       time: '20:00',
       f1: 'home',
       f2: 'home',
-      lines: [{ who: 'zib', rest: 'teshi tsifa', english: 'Zib goes home' }],
+      lines: [{ who: 'tofem', rest: 'teshi tsifa', english: 'Tofem goes home' }],
     })
   } else {
     steps.push(both('18:00', 'teshi tsifa', 'go home', 'home'))
