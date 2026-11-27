@@ -46,9 +46,11 @@ taught us.
   hand-written and no hints, the search selects the true reading: 68% of frames exactly right.
   Every wrong reading of the places loses, and by more the more strongly the world breaks it
   (gaps of 0.6, 1.1 and 1.4 at violation rates 0.25, 0.45 and 0.51).
-- **Confirmed on fresh pair 1** (entry 87): selected the truth, 62.9% exact.
-- **Running:** confirmation with the method frozen (entry 86), once each, on the fresh
-  `pilot-lured` pairs 1 and 2 (state vectors), then grid pair 1. [TBD]
+- **Confirmed on both fresh pairs** (entry 87): the frozen method selects the truth on lured pairs
+  1 and 2, at 62.9% and 64.0% exact (mean over three pairs 65.0%).
+- **Grid video on fresh pair 1** (entry 88): the true matching selected, but with hunger read
+  poorly (71-73%), so only 13% of frames are exact.
+- **Running:** grid video on fresh pair 2. [TBD]
 
 **The pilot (entries 1-55).** The state of the pilot when it ended:
 
@@ -2123,6 +2125,80 @@ step that sorts frame values and words into kinds, and the search that fixed the
   - Finalist scores (selection, and exact frames scored afterwards): truth 19.34 (62.9%); its
     agent-swapped twin 19.27 (51.0%); then 18.72 and 18.62 (0%); 18.04, 18.01, 17.78 and
     17.64 (0.6-3.2%). The truth's twin is the only reading within 0.6.
+- *Frozen code:* the patch of entry 86 was later committed unchanged as `feat/perf` commit
+  81c97db (its diff hashes to the same 128f9ba35a05b21c), so these runs are reproducible from
+  that commit.
+- *Result, pair 2* (search 4 hours, 8 finalists):
+  - **Selected: the true reading. 64.0% of held-out frames exactly right**, against 0.03% for the
+    same frames shuffled. Its agent order matches the key: 63.8% as numbered.
+  - Places 97-98%, hunger 97%, glass, stone and apple 88-93%.
+  - Finalist scores: truth 19.52 (64.0%); its agent-swapped twin 19.45 (62.7%); then 19.23 and
+    19.17 (0%), and 18.42, 18.17, 18.14 and 17.98 (0.9-6.2%). The nearest wrong readings trail
+    by 0.29-0.35, a narrower margin than on pairs 0 and 1 (0.6).
+- *Meaning:*
+  - **Confirmed on both fresh pairs**, each run once with the method frozen, nothing
+    hand-written and no truth used: 62.9% and 64.0% of frames exactly right. Pair 0, a tuning
+    pair, gave 68.1%. The mean over the three pairs is 65.0%; the hand-written pilot method
+    averaged 59.6% on its three pairs (entry 55), and the co-occurrence control 0.8%.
+  - Each time, the top two finalists were the truth and its agent-swapped twin. They score
+    within 0.07-0.32 of each other, as an exact symmetry should.
+  - The nearest wrong readings are 0.29-0.6 behind. Not named here, since naming them uses the
+    key; they decode no frames exactly, like the mirror in entry 86.
+  - Next: grid video on the fresh pairs 1 and 2 (entry 88).
+
+**88. On a fresh grid pair the frozen search selects the true reading, but its fit reads hunger poorly: 13% of frames exactly right.**
+- *Why:* entry 87's confirmation, now on grid video. The method frozen as in entry 86, with
+  `configs/pilot-grid-decipher-split.yaml`, run once on `pilot-grid-lured` pairs 1 and 2. The
+  truth was looked at only after each search had chosen.
+- *Result, pair 1* (search 4 hours 20 minutes, 24 matchings screened, 6 finalists):
+  - **Selected: the true matching**, every thing and place word as in the hidden key. It was
+    screened sixth of 24 and won the selection with 51.42.
+  - But only **13.2% of held-out frames are exactly right** (0.01% shuffled). Places are 95-98%,
+    glass 85%, stone and apple 53-58%, and hunger only 71-73%. On pair 0 the true matching's fit
+    read hunger at 94-96% (entry 85).
+  - The runner-up, at 51.11, has the places' mirror and the glass and apple words exchanged
+    (0% exact). Then come the agent swap with glass and apple exchanged (50.32), and three
+    readings with wrong places (49.31-50.17).
 - *Result, pair 2:* [TBD]
-- *Meaning so far:* the method generalises to a fresh pair, run once, with nothing hand-written
-  and no truth used. Pair 0 gave 68.1% and pair 1 gives 62.9%.
+- *Meaning so far:*
+  - The grid search can choose the truth with no hints. Here the margin was 0.31, about one
+    fit-to-fit noise gap (entry 85).
+  - Choosing isn't decoding well. This fit's split moves didn't establish hunger, and with
+    hunger weak the objects' rules (the apple is eaten when hungry) are read weakly too. On pair
+    0 the opposite happened: hunger was read well and the choice went wrong.
+  - Both come back to fit-to-fit variation on grid video, and the proposal already asks for
+    restarts. Next: restarts per finalist, keeping the best by its own fit value (no truth), so
+    each matching is judged on a good fit. [TBD]
+
+**89. The grid world model proposes the next moment as well as the state-vector model, so grid video's gap is in the aligner, not the watcher.**
+- *Why:* on grid video the decipherment decodes 13-47% of frames exactly under the true matching,
+  against 63-68% on state vectors (entries 85-88). Before improving the learned world model,
+  check whether it is the weak part.
+- *How:* `runs/queue/world_model_check.py` (uses hidden/ to evaluate only). On 200 held-out
+  episodes of lured pair 0, each trained world model sees the true frames up to each step and
+  samples 32 next frames. Each sample is read back into a world state and compared with the true
+  next state (8,044 steps).
+- *Result:*
+
+  | | State vectors | Grid video |
+  |---|---|---|
+  | Samples exactly right | 18.0% | 14.3% |
+  | Most common sample exactly right | 23.6% | 23.6% |
+  | Agent places | 59-60% | 69% |
+  | Hunger | 95% | 95% |
+  | Glass, stone, apple | 92-96% | 93-96% |
+
+  The exact rates are low for both because the agents' moves are random. A world model can only
+  give their odds.
+- *Meaning:*
+  - Given the true history, the two learned world models propose equally good next moments. So
+    a larger or longer-trained grid world model would not close the gap, and nor would a learned
+    abstraction of the video (option 4, discussed with Shane).
+  - The loss is in the decipherment's fit on grid video. Its settings differ from the
+    state-vector search in three ways, all chosen while grid searches took 8 hours: half the
+    training episodes (256 against 512), summary power 0.5 against 0.2, and split units against
+    joint.
+  - Next: the true matching's fit, as in the search, with 512 training episodes, on grid pairs 1
+    and 0 (entry 90). [TBD]
+- *Also stopped:* the grid confirmation on pair 2 (entry 88), during screening, before any finalist
+  was fitted. Its method is about to change, and the pair stays unused for confirming the new one.
