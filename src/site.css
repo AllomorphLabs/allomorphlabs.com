@@ -1001,3 +1001,13 @@ body { font-size: 16px; line-height: 1.6; }
 .source-note { font-size: 14px; color: var(--muted); }
 .source-note a { color: var(--body); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; font-style: italic; }
 .source-note a:hover { color: var(--amber-hover); text-decoration-color: currentColor; }
+
+/* Phones: no hero animation, and the definition band keeps its spacing (the phone rule for
+   .container would otherwise reset its top and bottom padding to 0) */
+@media (max-width: 760px) {
+  .hero__art { display: none; }
+  .hero { padding: 48px 0 56px; }
+}
+@media (max-width: 640px) {
+  .band__inner { padding-top: 40px; padding-bottom: 44px; gap: 24px; }
+}
