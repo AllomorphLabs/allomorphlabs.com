@@ -26,7 +26,20 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-// Pages render after load, so jump to a #fragment once the content exists.
+// Pages render after load (React renders asynchronously, and the log is long), so wait for the
+// #fragment's element to exist, for up to 3 seconds, then jump to it. Jump again once the fonts
+// have loaded, in case they moved it.
 if (location.hash) {
-  requestAnimationFrame(() => document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView())
+  const id = decodeURIComponent(location.hash.slice(1))
+  const until = performance.now() + 3000
+  const jump = () => {
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView()
+      document.fonts?.ready.then(() => el.scrollIntoView())
+    } else if (performance.now() < until) {
+      requestAnimationFrame(jump)
+    }
+  }
+  requestAnimationFrame(jump)
 }

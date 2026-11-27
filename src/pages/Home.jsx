@@ -168,7 +168,7 @@ function Latest() {
           <Eyebrow tone="ice">Working in the open</Eyebrow>
           <h2 className="h2">Every experiment, as it happens.</h2>
           <p className="lede lede--small">
-            Why each experiment was run, how, what happened and what it means, in plain language.
+            Why each experiment was run, how, what happened and what it means, in plain language.{' '}
             {entries.length} experiments so far: the breakthroughs and the dead ends, all kept, none
             rewritten afterwards.
           </p>
