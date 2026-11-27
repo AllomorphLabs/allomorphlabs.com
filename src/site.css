@@ -799,3 +799,205 @@
   .grid-clip__places { font-size: 9px; }
 }
 .grid-video .takeaway-item .status { align-self: flex-start; }
+
+/* ---------- Plainer, more editorial look (27 Nov) ----------
+   One type family, quieter headings, fewer decorations: labels are ordinary small text, buttons
+   and cards are simple rectangles, nothing pulses or glows. Colours are unchanged. */
+:root {
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+body { font-size: 16px; line-height: 1.6; }
+.hero { padding: 72px 0 88px; }
+.hero__title {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.04;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.h2, .h2--lg, .h2--xl {
+  font-size: clamp(28px, 3.2vw, 38px);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.card__title, .brand__name { letter-spacing: -0.01em; }
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 500;
+}
+.pill {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  border-radius: 4px;
+}
+.pulse-dot, .hero__glow { display: none; }
+.btn { min-height: 44px; padding: 0 20px; border-radius: 6px; font-size: 15px; }
+.card { border-radius: 8px; transition: border-color 0.2s ease; }
+.card:hover { transform: none; }
+
+/* Home page pieces */
+.hero__links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.text-link { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--line); }
+.text-link:hover { color: var(--amber-hover); text-decoration-color: currentColor; }
+.fig-label { font-size: 14px; color: var(--ink); font-weight: 500; }
+.feature__text { display: flex; flex-direction: column; gap: 16px; font-size: 18px; line-height: 1.6; max-width: 34em; }
+.figure-num { color: var(--amber); font-weight: 600; }
+.prose-block { display: flex; flex-direction: column; gap: 24px; max-width: 760px; }
+.principles { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 14px; font-size: 17px; line-height: 1.65; }
+.principles strong { color: var(--ink); font-weight: 600; }
+.projects { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.projects li { display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid var(--line); }
+.projects li:last-child { border-bottom: 1px solid var(--line); }
+.projects a { color: var(--ink); font-size: 18px; font-weight: 500; text-decoration: none; }
+.projects a:hover { color: var(--amber-hover); }
+.projects__note { color: var(--muted); font-size: 15px; }
+.codeblock {
+  margin: 0;
+  min-width: 0;
+  overflow-x: auto;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  font: 13px/1.7 var(--font-mono);
+  color: var(--body);
+}
+
+/* Principles: numbered like a book's paragraphs, two columns */
+.principles {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px 48px;
+}
+.prose-block:has(.principles) { max-width: none; }
+.principle { display: grid; grid-template-columns: 56px 1fr; gap: 4px; padding-top: 20px; border-top: 1px solid var(--line); }
+.principle__n { font-size: 40px; line-height: 1; font-weight: 300; color: var(--amber); }
+.principle__title { font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.principle p { font-size: 16px; line-height: 1.65; }
+
+/* What we're working on */
+.project-now {
+  display: flex; flex-direction: column; gap: 14px;
+  padding: 28px; border: 1px solid var(--amber); border-radius: 8px;
+  color: var(--body); text-decoration: none;
+}
+.project-now:hover { background: var(--panel); color: var(--body); }
+.project-now__title { color: var(--ink); font-size: 22px; font-weight: 600; }
+.project-now__text { font-size: 16px; max-width: 46em; }
+.phases { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 0; font-size: 14px; color: var(--muted); }
+.phases li { display: flex; align-items: center; }
+.phases li + li::before { content: ''; width: 24px; height: 1px; background: var(--line); margin: 0 10px; }
+.phases__done { color: var(--body); }
+.phases__done::after { content: ' ✓'; color: var(--ice); white-space: pre; }
+.phases__now { color: var(--amber); font-weight: 600; }
+.ideas { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.idea {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 22px 24px; border: 1px dashed var(--line); border-radius: 8px;
+  color: var(--body); text-decoration: none;
+}
+.idea:hover { border-color: var(--muted); color: var(--body); }
+.idea__title { color: var(--ink); font-size: 17px; font-weight: 500; }
+.idea__text { font-size: 15px; color: var(--muted); }
+.idea__status { font-size: 13px; color: var(--muted); margin-top: auto; }
+
+/* Principles, second go: rows of number, title and sentence, at a reading width */
+.prose-block:has(.principles) { max-width: 880px; }
+.principles { display: flex; flex-direction: column; gap: 0; border-bottom: 1px solid var(--line); }
+.principle {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 220px) minmax(0, 1fr);
+  gap: 0 24px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.principle > div { display: contents; }
+.principle__n { font-size: 28px; }
+.principle__title { margin: 0; font-size: 17px; }
+.principle p { color: var(--body); }
+@media (max-width: 760px) {
+  .principle { grid-template-columns: 40px minmax(0, 1fr); }
+  .principle p { grid-column: 2; margin-top: 6px; }
+}
+
+/* The current project, in the same form as the ideas beside it */
+.idea--now { border: 1px solid var(--amber); }
+.idea--now:hover { border-color: var(--amber-hover); background: var(--panel); }
+.idea__status--now { color: var(--amber); }
+
+/* Mobile: a plain menu icon, GitHub as an ordinary link, and a one-column footer */
+@media (max-width: 760px) {
+  .nav { min-height: 64px; }
+  .nav__toggle { border: 0; padding: 8px; margin-right: -8px; }
+  .nav__github {
+    background: none; color: var(--body); justify-content: flex-start;
+    min-height: 0; padding: 10px 4px; font-weight: 400; font-size: 15px; border-radius: 0;
+  }
+  .nav__github:hover { background: none; color: var(--ink); }
+  .footer__grid { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 40px 0 32px; }
+  .footer__brand { max-width: none; }
+  .footer__legal { font-family: var(--font-sans); }
+}
+
+/* Principles, third go: four steps along one line, each with what it meant in Project 01 */
+.process {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 32px;
+  position: relative;
+}
+.process::before {
+  content: ''; position: absolute; left: 6px; right: 6px; top: 6px;
+  height: 1px; background: var(--line);
+}
+.process__step { position: relative; display: flex; flex-direction: column; gap: 10px; padding-top: 32px; }
+.process__node {
+  position: absolute; top: 0; left: 0;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--amber);
+}
+.process__title { font-size: 19px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.process__body { font-size: 15px; line-height: 1.6; }
+.process__example {
+  margin-top: 4px; padding-top: 12px; border-top: 1px dashed var(--line);
+  font-size: 14px; line-height: 1.55; color: var(--muted);
+}
+.process__in { color: var(--amber); font-weight: 500; }
+@media (max-width: 1040px) {
+  .process { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; }
+  .process::before { display: none; }
+}
+@media (max-width: 760px) {
+  .process { grid-template-columns: minmax(0, 1fr); gap: 0; padding-left: 28px; }
+  .process::before { display: block; left: 6px; right: auto; top: 6px; bottom: 6px; width: 1px; height: auto; }
+  .process__step { padding: 0 0 32px; }
+  .process__node { left: -28px; top: 4px; }
+}
+
+/* Mobile header: the logo and menu button keep a fixed row, the links open below it */
+@media (max-width: 760px) {
+  .nav { align-items: flex-start; align-content: flex-start; padding-top: 0; padding-bottom: 0; min-height: 0; row-gap: 0; }
+  .brand, .nav__toggle { height: 64px; align-self: flex-start; }
+  .nav__toggle { display: inline-flex; align-items: center; }
+}
+
+/* Line up each step's title, principle and example across the four steps (subgrid) */
+.process { grid-template-rows: auto auto auto; }
+.process__step { display: grid; grid-row: span 3; grid-template-rows: subgrid; gap: 10px 0; align-content: start; }
+.process__example { align-self: start; }
+@media (max-width: 760px) {
+  .process { grid-template-rows: none; }
+  .process__step { display: flex; grid-row: auto; }
+}
+
+/* A quiet note under a section's lede, naming where it comes from */
+.source-note { font-size: 14px; color: var(--muted); }
+.source-note a { color: var(--body); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; font-style: italic; }
+.source-note a:hover { color: var(--amber-hover); text-decoration-color: currentColor; }

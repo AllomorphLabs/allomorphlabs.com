@@ -443,5 +443,30 @@
   "n": 89,
   "title": "The grid world model proposes the next moment as well as the state-vector model, so grid video's gap is in the aligner, not the watcher",
   "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 90,
+  "title": "Twice the training data doesn't fix grid pair 1's hunger; its world model and its frame structure are both right, so the fit itself is failing",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 91,
+  "title": "Two exact speed-ups that had never been switched on halve the filter's time; the split step is real arithmetic and has no exact speed-up left",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 92,
+  "title": "On grid pair 1 every restart reads hunger at about 73%: the fit gives hunger an effect of the right size pointing half the wrong way, so the split step never retries it",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 93,
+  "title": "Linking each verb to the change that happens about as often as the verb is used fixes hunger on grid pair 1, but the first attempt made the objects worse",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 94,
+  "title": "Change of direction: the particle filter may be starved of rare events, so weigh single appearance changes exactly",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
  }
 ]
