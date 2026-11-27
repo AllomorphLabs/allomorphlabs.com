@@ -433,5 +433,15 @@
   "n": 87,
   "title": "Confirmation on fresh pairs: the frozen method selects the true reading on lured pair 1 (state vectors, 62.9% of frames exactly right)",
   "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 88,
+  "title": "On a fresh grid pair the frozen search selects the true reading, but its fit reads hunger poorly: 13% of frames exactly right",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 89,
+  "title": "The grid world model proposes the next moment as well as the state-vector model, so grid video's gap is in the aligner, not the watcher",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
  }
 ]

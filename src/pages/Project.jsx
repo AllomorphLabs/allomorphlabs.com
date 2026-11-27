@@ -43,7 +43,7 @@ const HYPOTHESES = [
     claim: 'The two models can be aligned with no paired data',
     status: 'Pilot gate met',
     tone: 'good',
-    note: `${pct(avg('method'))} of held-out sentences right on average, against ${pct(avg('baseline'))} for the co-occurrence control. The scrambled-world control isn’t built yet. With nothing hand-written and no hints, the search now finds the true reading from lists of facts: 68% of frames exactly right on a pair used to develop the method, and 63% on a fresh pair, run once with the method frozen. On grid video the true reading is among the finalists (43% exact), but the final choice still swaps two object words.`,
+    note: `${pct(avg('method'))} of held-out sentences right on average, against ${pct(avg('baseline'))} for the co-occurrence control. The scrambled-world control isn’t built yet. With nothing hand-written and no hints, the search now finds the true reading from lists of facts: 68% of frames exactly right on a pair used to develop the method, and 63% and 64% on two fresh pairs, each run once with the method frozen. On grid video the search chose the true reading on a fresh pair too, but decoded only 13% of frames exactly; making grid video as good is the current work.`,
   },
   {
     id: 'H3',
@@ -422,8 +422,8 @@ function GridVideo() {
               <p>
                 <strong className="ink">The truth, found with no hints.</strong> From lists of facts, the search
                 chose the true reading and gets 68% of frames exactly right, against 60% for the pilot’s hand-written
-                method. That pair helped develop the method, so it doesn’t count as confirmation. On a fresh pair,
-                run once with the method frozen, it chose the truth again: 63% exactly right.
+                method. That pair helped develop the method, so it doesn’t count as confirmation. On two fresh
+                pairs, each run once with the method frozen, it chose the truth again: 63% and 64% exactly right.
               </p>
             </div>
             <div className="takeaway-item">
@@ -454,9 +454,11 @@ function GridVideo() {
             <div className="takeaway-item">
               <span className="status status--warn">Not yet</span>
               <p>
-                <strong className="ink">The final choice.</strong> The search picked a reading with the stone and
-                apple words swapped. Once that swap is allowed for, it gets 32% of frames exactly right. Every reading
-                with the places wrong scored lowest.
+                <strong className="ink">Choosing and decoding, not yet both.</strong> On one pair the search
+                picked a reading with the stone and apple words swapped (32% exactly right once that swap is allowed
+                for). On a fresh pair it chose the true reading, but that fit read hunger poorly and got only 13%
+                right. The watcher’s learned model of the video turns out to be as good as the lists-of-facts one, so
+                the gap is in how the two are aligned, and that is what we are working on.
               </p>
             </div>
             <div className="takeaway-item">
@@ -524,7 +526,7 @@ function Next() {
           <Eyebrow tone="amber">Open issues carried forward</Eyebrow>
           <ul className="plain-list">
             <li>On grid video the search’s final choice swaps object words that the world barely tells apart (entry 85). Whether noise or a bias settles such near-ties needs more pairs.</li>
-            <li>Confirmed on one fresh pair from lists of facts (entry 87); a second fresh pair, and grid video on a fresh pair, are running.</li>
+            <li>Confirmed on two fresh pairs from lists of facts (entry 87). On grid video the truth was chosen on a fresh pair, but decoded poorly (entry 88); the gap is in the alignment, not the watcher (entry 89).</li>
             <li>The pairs used to develop the method can’t confirm it. Once it is frozen, it runs once on fresh pairs, as the pilot’s did.</li>
             <li>Still to build in this phase: the cipher control, the calibration world, the scrambled world, the grammar-only control and the symmetry-free world.</li>
             <li>A richer world, to give the trained frame model room to show what it adds.</li>
