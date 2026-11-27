@@ -43,7 +43,7 @@ function Nav({ page }) {
               {n.label}
             </a>
           ))}
-          <a className="btn btn--small" href={GITHUB_URL}>GitHub</a>
+          <a className="btn btn--small nav__github" href={GITHUB_URL}>GitHub</a>
         </div>
       </nav>
     </header>
