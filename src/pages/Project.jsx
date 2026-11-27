@@ -43,14 +43,14 @@ const HYPOTHESES = [
     claim: 'The two models can be aligned with no paired data',
     status: 'Pilot gate met',
     tone: 'good',
-    note: `${pct(avg('method'))} of held-out sentences right on average, against ${pct(avg('baseline'))} for the co-occurrence control. The scrambled-world control isn’t built yet. On grid video, told which word is which, the method now decodes 37–47% of frames exactly right; whether it can find that out for itself is being tested.`,
+    note: `${pct(avg('method'))} of held-out sentences right on average, against ${pct(avg('baseline'))} for the co-occurrence control. The scrambled-world control isn’t built yet. With nothing hand-written and no hints, the search now finds the true reading from lists of facts: 68% of frames exactly right on a pair used to develop the method, and 63% on a fresh pair, run once with the method frozen. On grid video the true reading is among the finalists (43% exact), but the final choice still swaps two object words.`,
   },
   {
     id: 'H3',
     claim: 'The remaining errors follow the world’s symmetries, and near-symmetries are confused in proportion to how nearly they hold',
     status: 'Not yet tested',
     tone: 'muted',
-    note: 'For two models of the same data, this limit was proven in 2026. Ours share a world but no data, so the proof doesn’t cover them, and nobody has predicted how often near-symmetries are confused. Two first measurements, not yet evidence: the two twin matchings tie on grid video, as predicted, and a near-tie turned up unprompted, when the method chose the places back to front (see grid video, below).',
+    note: 'For two models of the same data, this limit was proven in 2026. Ours share a world but no data, so the proof doesn’t cover them, and nobody has predicted how often near-symmetries are confused. First measurements, not yet evidence: the two twin matchings tie, as predicted, and on grid video the method’s confusions follow how nearly each relabelling holds, on one pair so far (see grid video, below).',
   },
   {
     id: 'H4',
@@ -399,10 +399,11 @@ function GridVideo() {
       <div className="container stack-48">
         <div className="section-head section-head--wide">
           <Eyebrow tone="amber">Phase 3 · under way</Eyebrow>
-          <h2 className="h2 h2--lg">Grid video: hunger learned, the full search under test.</h2>
+          <h2 className="h2 h2--lg">The full search: the truth found, and the confusions H3 predicts.</h2>
           <p className="lede">
-            The proposal’s main condition shows the watcher pictures, not lists of facts. Told which word is which, the
-            method now reads grid video well. Whether it can work that out for itself is the test running now.
+            The proposal’s main condition shows the watcher pictures, not lists of facts. With nothing hand-written and
+            no hints, the full search now finds the true reading from lists of facts, and gets the places and hunger
+            right on grid video. What it still confuses are things the world itself barely tells apart.
           </p>
         </div>
         <div className="grid-video">
@@ -416,6 +417,15 @@ function GridVideo() {
             </p>
           </div>
           <div className="takeaways">
+            <div className="takeaway-item">
+              <span className="status status--good">Works</span>
+              <p>
+                <strong className="ink">The truth, found with no hints.</strong> From lists of facts, the search
+                chose the true reading and gets 68% of frames exactly right, against 60% for the pilot’s hand-written
+                method. That pair helped develop the method, so it doesn’t count as confirmation. On a fresh pair,
+                run once with the method frozen, it chose the truth again: 63% exactly right.
+              </p>
+            </div>
             <div className="takeaway-item">
               <span className="status status--good">Works</span>
               <p>
@@ -436,26 +446,30 @@ function GridVideo() {
             <div className="takeaway-item">
               <span className="status status--good">Better</span>
               <p>
-                <strong className="ink">37–47% of frames exactly right</strong>, told which word is which, up from
-                about 15–20%. Reading the summaries with a model fitted on the true frames gives 64%. What’s left is
-                mostly where the objects are.
+                <strong className="ink">The truth among the finalists.</strong> Found by the search itself, the true
+                reading gets 43% of frames exactly right, up from about 15–20% a week ago, and the places 97%. A
+                search now takes 4 hours instead of 8.
               </p>
             </div>
             <div className="takeaway-item">
-              <span className="status status--warn">Under test</span>
+              <span className="status status--warn">Not yet</span>
               <p>
-                <strong className="ink">The full search, with no hints.</strong> Earlier, a matching with all three
-                object words wrong scored higher than the truth. The search is now being rerun with the new step, on
-                grid video and on lists of facts.
+                <strong className="ink">The final choice.</strong> The search picked a reading with the stone and
+                apple words swapped. Once that swap is allowed for, it gets 32% of frames exactly right. Every reading
+                with the places wrong scored lowest.
               </p>
             </div>
             <div className="takeaway-item">
-              <span className="status status--warn">A near-tie</span>
+              <span className="status status--warn">First signs</span>
               <p>
-                <strong className="ink">The places, back to front.</strong> The places lie on a path that reads the
-                same both ways, except that the twins eat at the bush. With nothing hand-written, the method chose the
-                mirror image: the kind of confusion H3 predicts. Every part of the method that can’t see hunger is
-                fooled by it; with the new step, the right order won a direct comparison by a wide margin.
+                <strong className="ink">Confusions that follow the world.</strong> The places lie on a path that
+                reads the same both ways, except that the twins eat at the bush, and the method chose the mirror
+                image. So we made a version of the world in which the twins also prefer two of the places, which
+                breaks the mirror at every move. There the mirror lost. On grid video, what is still confused
+                (stone with apple, glass with apple) are the swaps the world breaks least: on 3–5% of steps, against
+                25% or more for those it rejected. From lists of facts, every wrong reading of the places lost, and by
+                more the more often the world breaks it. That is the graded pattern H3 predicts, so far on pairs used
+                to develop the method.
               </p>
             </div>
             <a className="small" href={logEntry(56)}>
@@ -509,12 +523,12 @@ function Next() {
         <div className="callout">
           <Eyebrow tone="amber">Open issues carried forward</Eyebrow>
           <ul className="plain-list">
-            <li>The full search on grid video, with no hints, is under test (entries 69 onwards).</li>
-            <li>On grid video, where the objects are is now the weakest part of what is decoded.</li>
+            <li>On grid video the search’s final choice swaps object words that the world barely tells apart (entry 85). Whether noise or a bias settles such near-ties needs more pairs.</li>
+            <li>Confirmed on one fresh pair from lists of facts (entry 87); a second fresh pair, and grid video on a fresh pair, are running.</li>
             <li>The pairs used to develop the method can’t confirm it. Once it is frozen, it runs once on fresh pairs, as the pilot’s did.</li>
             <li>Still to build in this phase: the cipher control, the calibration world, the scrambled world, the grammar-only control and the symmetry-free world.</li>
             <li>A richer world, to give the trained frame model room to show what it adds.</li>
-            <li>Done: every order of the twins is searched; both observation formats sort their units into kinds from their own statistics; hunger is learned on grid video without marking who acted (entries 58-76).</li>
+            <li>Done: every order of the twins is searched; both observation formats sort their units into kinds from their own statistics; hunger is learned on grid video without marking who acted; a search runs twice as fast with exactly the same results (entries 58-85).</li>
           </ul>
         </div>
       </div>

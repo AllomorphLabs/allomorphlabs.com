@@ -398,5 +398,40 @@
   "n": 80,
   "title": "The world's dynamics alone can't break the places' near-symmetry",
   "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 81,
+  "title": "On grid video with no truth, the selection chose the places' mirror over a truth fit that misread the apple",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 82,
+  "title": "The full state-vector search with split moves ran out of GPU memory speed and was stopped after 2 of 8 finalists, neither of them the truth",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 83,
+  "title": "The filter speed-ups, the cached context and the sampler graph reproduce the current code exactly on the GPU; the split-move change didn't and was dropped",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 84,
+  "title": "Change of direction: a pilot world where the places' mirror is strongly broken, to test the method without the near-symmetry",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 85,
+  "title": "In the lured world the grid search rejects every wrong reading of the places, but confuses object words that the world barely tells apart; the confusions follow the violation rate",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 86,
+  "title": "With nothing hand-written and no hints, the state-vector search selects the true reading in the lured world, and the wrong readings lose in order of how strongly the world breaks them",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
+ },
+ {
+  "n": 87,
+  "title": "Confirmation on fresh pairs: the frozen method selects the true reading on lured pair 1 (state vectors, 62.9% of frames exactly right)",
+  "session": "Session 7: learning hunger, and state vectors with nothing hand-written"
  }
 ]
